@@ -10,7 +10,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-bake');
     grunt.initConfig({
-        bake: { default: { files: { 'build/index.html': 'src/index.html' } } },
+        bake: { default: { files: {
+            'build/index.html': 'src/index.html',
+            'build/work.html': 'src/work.html'
+        } } },
         connect: {
             server: {
                 options: {
