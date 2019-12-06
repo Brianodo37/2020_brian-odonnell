@@ -12,7 +12,8 @@ module.exports = function (grunt) {
     grunt.initConfig({
         bake: { default: { files: {
             'build/index.html': 'src/index.html',
-            'build/work.html': 'src/work.html'
+            'build/work.html': 'src/work.html',
+            'build/photography.html': 'src/photography.html'
         } } },
         connect: {
             server: {
@@ -26,14 +27,14 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            js: {
-                files: [{
-                        expand: true,
-                        cwd: 'src/js',
-                        src: ['**'],
-                        dest: 'build/js'
-                    }]
-            },
+            // js: {
+            //     files: [{
+            //             expand: true,
+            //             cwd: 'src/js',
+            //             src: ['**'],
+            //             dest: 'build/js'
+            //         }]
+            // },
             img: {
                 files: [{
                         expand: true,
@@ -63,7 +64,13 @@ module.exports = function (grunt) {
             }
         },
         less: { default: { files: { 'build/css/app.css': 'src/less/app.less' } } },
-        uglify: { js: { files: { 'build/js/libs.js': ['src/js/lib/hbs.js'] } } },
+        uglify: {
+            js: {
+                files: {
+                    'build/js/libs.js': ['src/js/lib/hbs.js']
+                }
+            }
+        },
         watch: {
             less: {
                 files: ['src/**/*.less'],

@@ -1,5 +1,5 @@
 header {
-    background-color: #1c1d25;
+    background-color: #252627;
 
     .nav {
         display: flex;
@@ -12,8 +12,8 @@ header {
             justify-content: flex-start;
             align-items: center;
 
-            img {
-                max-width: 275px;
+             a {
+                width: 275px;
             }
         }
 
@@ -34,7 +34,7 @@ header {
                     display: inline;
 					margin: 0 15px;
 
-					a {
+					a.nav-link {
 						position: relative;
 						padding: 0 5px;
 						transition: color .35s ease;
@@ -64,6 +64,18 @@ header {
 						&:hover {
 							transition: color .35s ease;
 
+							&:before {
+								width: 100%;
+								left: 0;
+							}
+
+							&:after {
+								width: 100%;
+								left: 0;
+							}
+						}
+
+						&.active {
 							&:before {
 								width: 100%;
 								left: 0;

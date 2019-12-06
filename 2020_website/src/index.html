@@ -15,21 +15,20 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
-				<!-- Add your site or application content here -->
-				<h1>This is a test</h1>
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aliquid beatae
-					doloremque doloribus dolorum ea fuga ipsa laboriosam nam neque omnis quam rem repudiandae, tempore
-					totam ullam velit voluptatum.</p>
-
-				<p>Exercitationem nesciunt nisi perferendis voluptatibus. Assumenda beatae, libero! Aspernatur
-					blanditiis, ut? Aliquid minima nisi nostrum obcaecati odio quae, ratione sit. Beatae earum id
-					laudantium libero nemo obcaecati provident ut.</p>
-
-				<p>Dicta error eum maxime mollitia optio. Animi, eius explicabo facilis ipsum quisquam ratione. Aperiam
-					eveniet incidunt laborum magnam mollitia provident quisquam! Adipisci eius, eveniet id iste libero
-					natus porro soluta.</p>
-
+				<main data-router-wrapper>
+					<div data-router-view="home" class="home">
+						<div class="home-content">
+							<h1>HOME</h1>
+							<div class="fake-content">
+								<div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed neque arcu. Aliquam convallis enim dui, vitae commodo mauris suscipit semper. Aenean venenatis vulputate ex, rhoncus maximus enim sodales eu. Nunc vehicula mattis consectetur. Maecenas malesuada, nisi quis pulvinar sodales, orci sem finibus nunc, et auctor odio nisi non diam. Vivamus tristique auctor purus, id volutpat nibh rutrum aliquam. Donec venenatis lacus vel consectetur dapibus. Sed elementum eros quis est sodales, vitae cursus nulla pellentesque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur vitae placerat urna.</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Aliquam augue enim, mattis eget leo ut, ultricies rhoncus augue. Vivamus eu tristique libero. Praesent tempor fringilla lectus ut lacinia. Nullam in sapien laoreet, cursus ipsum eu, rutrum sapien. Aliquam ut rhoncus erat. Quisque felis felis, congue molestie consequat at, malesuada sit amet ipsum.</p>
+								</div>
+								<img src="https://picsum.photos/600/400">
+							</div>
+						</div>
+					</div>
+				</main>
 			</div>
 		</div>
 	</div>
@@ -37,14 +36,5 @@
 
 <!--(bake includes/footer.html)-->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/lib/jquery-1.10.2.min.js"><\/script>')</script>
-
-<script src="js/libs.js"></script>
-<!-- Add your plugins, modules and classes here -->
-
-
-<!-- Add your app main and section controller here -->
-<script src="js/APP/main.js"></script>
 </body>
 </html>
