@@ -30,8 +30,8 @@ import '../lib/transitions.js';
 			endPreloader();
 		});
 
-		// Starts and ends the preloader when the back or forward
-		// buttons are clicked (popstate changes)
+		// Runs when the back or forward button is clicked
+		// (popstate changes)
 		$(window).on('popstate', function() {
 			startPreloader();
 			endPreloader();
@@ -73,13 +73,33 @@ import '../lib/transitions.js';
 	}
 
 	module.initNavControls = function() {
-		// On page load searches the Url for 'work.html' or
-		// 'photography.html' and add the active class
-		var page = window.location.pathname;
-		if (page.search('work.html') >= 0) {
-			$('#work').addClass('active');
-		} else if (page.search('photography.html') >= 0) {
-			$('#photography').addClass('active');
+		// Searches for active tab on page load
+		setActive();
+
+		// Runs any time a link is clicked
+		$('a').on('click', function() {
+			setActive();
+		});
+
+		// Runs when the back or forward button is clicked
+		// (popstate changes)
+		$(window).on('popstate', function() {
+			setActive();
+		});
+
+		function setActive() {
+			// After a 1sec delay it searches for '.work' and '.photography'
+			// and sets them as active if found
+			setTimeout(function() {
+				$('.nav-link.active').removeClass('active');
+				if ($('.work')[0]) {
+					console.log('Work');
+					$('#work').addClass('active');
+				} else if ($('.photography')[0]) {
+					console.log('Photography');
+					$('#photography').addClass('active');
+				}
+			}, 1000);
 		}
 	}
 
