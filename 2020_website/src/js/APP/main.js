@@ -18,6 +18,7 @@ import '../lib/particles.min.js';
 		module.initPreloader();
 		module.initNavControls();
 		module.initContactFormControls();
+		module.initParticles();
 	};
 
 	module.initPreloader = function() {
@@ -136,6 +137,12 @@ import '../lib/particles.min.js';
 				}, 500);
 			}
 		}
+	}
+
+	module.initParticles = function() {
+		particlesJS.load('particles-js', 'json/particles-config.json', function() {
+			console.log('callback - particles.js config loaded');
+		});
 	}
 
 	/**
