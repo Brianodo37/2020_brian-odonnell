@@ -3,6 +3,7 @@
  */
 
 import '../lib/transitions.js';
+import '../lib/particles.min.js';
 
 (function() {
 	/**
