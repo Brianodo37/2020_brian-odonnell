@@ -317,3 +317,8 @@ header .nav__list ul li a.nav-link.active:after {
   transform: translate(0px, 0px);
   transition: transform 0.2s ease;
 }
+#particles-js {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}

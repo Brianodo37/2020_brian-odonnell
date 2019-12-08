@@ -43,6 +43,14 @@ module.exports = function (grunt) {
                         dest: 'build/img'
                     }]
             },
+            json: {
+                files: [{
+                        expand: true,
+                        cwd: 'src/json',
+                        src: ['**'],
+                        dest: 'build/json'
+                }]
+            },
             fonts: {
                 files: [{
                         expand: true,
