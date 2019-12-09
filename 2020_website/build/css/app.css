@@ -333,6 +333,7 @@ header .nav__list ul li a.nav-link.active:after {
   pointer-events: none;
   transition: transform 0.2s ease;
   background-color: #BB0A21;
+  border-radius: 5px;
 }
 .home__landing .cta-link a {
   text-transform: uppercase;
@@ -344,6 +345,7 @@ header .nav__list ul li a.nav-link.active:after {
   transform: translate(5px, 5px);
   transition: transform 0.2s ease;
   border: 3px solid white;
+  border-radius: 5px;
 }
 .home__landing .cta-link:hover .cta-link__border {
   transform: translate(0px, 0px);
