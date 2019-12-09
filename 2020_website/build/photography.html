@@ -18,7 +18,9 @@
     <!-- Move Bootstrap into your project directory to start! -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/app.css">
-	<link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+
+	<!-- Font Awesome CDN link -->
+	<script src="https://kit.fontawesome.com/01ecc35421.js" crossorigin="anonymous"></script>
 </head>
 
 <div class="preloader">
@@ -53,17 +55,17 @@
 
 <header class="main">
 	<div class="container">
-		<div class="nav">
+		<div class="nav" data-aos="fade-down">
 			<div class="nav__logo">
 				<a href="/" alt="Home" class="internal-link">
-					<img src="/img/logos/logo-dark.svg" alt="Logo">
+					<img src="/img/logos/alt-logo-light.svg" alt="Logo">
 				</a>
 			</div>
 			<div class="nav__list">
 				<ul class="list">
-					<li><a href="work.html" id="work" class="nav-link internal-link">Work</a></li>
-					<li><a href="photography.html" id="photography" class="nav-link internal-link">Photography</a></li>
-					<li><a href="" class="nav-link open-contact-form">Contact</a></li>
+					<li><a href="work.html" id="work" class="nav-link underline internal-link">Work</a></li>
+					<li><a href="photography.html" id="photography" class="nav-link underline internal-link">Photography</a></li>
+					<li><a href="" class="nav-link underline open-contact-form">Contact</a></li>
 				</ul>
 			</div>
 		</div>
@@ -97,9 +99,43 @@
 <footer class="main">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12">
-				<hr class="hr"/>
-				<p>This is the footer</p>
+			<div class="footer col-xs-12">
+				<div class="footer__content" data-aos="fade-up">
+					<a href="/" alt="Home" class="internal-link">
+						<img src="/img/logos/logo-light.svg">
+					</a>
+					<p>&copy; Copyright 2020</p>
+				</div>
+				<div class="footer__social">
+					<div class="social" data-aos="fade-up">
+						<a href="https://www.instagram.com/brianodo/" alt="Instagram" target="_blank">
+							<span class="social__icon"><i class="fab fa-instagram"></i></span>
+							<span class="social__background"></span>
+						</a>
+					</div>
+					<div class="social" data-aos="fade-up" data-aos-delay="100">
+						<a href="https://twitter.com/brianodo" alt="Twitter" target="_blank">
+							<span class="social__icon"><i class="fab fa-twitter"></i></span>
+							<span class="social__background"></span>
+						</a>
+					</div>
+					<div class="social" data-aos="fade-up" data-aos-delay="200">
+						<a href="https://www.flickr.com/photos/brianodo/" alt="Instagram" target="_blank">
+							<span class="social__icon"><i class="fab fa-flickr"></i></span>
+							<span class="social__background"></span>
+						</a>
+					</div>
+					<div class="social" data-aos="fade-up" data-aos-delay="300">
+						<a href="https://codepen.io/brianodo" alt="CodePen" target="_blank">
+							<span class="social__icon"><i class="fab fa-codepen"></i></span>
+							<span class="social__background"></span>
+						</a>
+					</div>
+					<div class="social open-contact-form" data-aos="fade-up" data-aos-delay="400">
+						<span class="social__icon"><i class="fas fa-envelope"></i></span>
+						<span class="social__background"></span>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

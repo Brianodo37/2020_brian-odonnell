@@ -18,7 +18,9 @@
     <!-- Move Bootstrap into your project directory to start! -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/app.css">
-	<link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+
+	<!-- Font Awesome CDN link -->
+	<script src="https://kit.fontawesome.com/01ecc35421.js" crossorigin="anonymous"></script>
 </head>
 
 <div class="preloader">
@@ -49,21 +51,21 @@
 
 
 <!-- Standard init -->
-<body data-section="" data-page="">
+<body data-section="" data-page="" class="home">
 
 <header class="main">
 	<div class="container">
-		<div class="nav">
+		<div class="nav" data-aos="fade-down">
 			<div class="nav__logo">
 				<a href="/" alt="Home" class="internal-link">
-					<img src="/img/logos/logo-dark.svg" alt="Logo">
+					<img src="/img/logos/alt-logo-light.svg" alt="Logo">
 				</a>
 			</div>
 			<div class="nav__list">
 				<ul class="list">
-					<li><a href="work.html" id="work" class="nav-link internal-link">Work</a></li>
-					<li><a href="photography.html" id="photography" class="nav-link internal-link">Photography</a></li>
-					<li><a href="" class="nav-link open-contact-form">Contact</a></li>
+					<li><a href="work.html" id="work" class="nav-link underline internal-link">Work</a></li>
+					<li><a href="photography.html" id="photography" class="nav-link underline internal-link">Photography</a></li>
+					<li><a href="" class="nav-link underline open-contact-form">Contact</a></li>
 				</ul>
 			</div>
 		</div>
@@ -76,20 +78,44 @@
 	<div data-router-view="home" class="home">
 		<div class="home__container">
 			<div class="home__landing">
-				<div id="particles-js"></div>
-				<h1>Brian O'Donnell</h1>
-				<h2>Front-End Web Developer</h2>
-				<div class="cta-link">
-					<a href="/work.html" alt="Work" class="internal-link">Work</a>
+				<h1 data-aos="fade-up">Brian O'Donnell</h1>
+				<h2 data-aos="fade-up" data-aos-delay="100">Front-End Web Developer</h2>
+				<div data-aos="fade-up" data-aos-delay="200" class="cta-link">
 					<span class="cta-link__border"></span>
+					<a href="/work.html" alt="Work" class="internal-link">Work</a>
 				</div>
+				<div id="particles-js"></div>
 			</div>
 		</div>
 		<div class="wrapper">
 			<div class="container">
-				<div class="row">
-					<div class="col-xs-12">
-						
+				<div class="bio">
+					<div class="row">
+						<div class="bio__photo col-md-4">
+							<span data-aos="fade-up" data-aos-delay="50" class="bio__border" ></span>
+							<img src="/img/bio.jpg" data-aos="fade-up">
+						</div>
+						<div class="bio__summary col-md-8">
+							<p data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis neque volutpat, accumsan magna ac, commodo metus. Suspendisse potenti. Fusce posuere dolor sed dolor ultrices egestas. Proin non dui sit amet neque ultrices pellentesque vitae vel odio. Nullam sem nibh, consequat ut imperdiet in, blandit id magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas viverra aliquet diam, et aliquam leo condimentum nec.</p>
+							<div class="bio__stats">
+								<div data-aos="fade-up" data-aos-delay="100" class="stat">
+									<i class="fas fa-globe-americas"></i>
+									<h3>Toledo, OH</h3>
+								</div>
+								<div data-aos="fade-up" data-aos-delay="200" class="stat">
+									<i class="fas fa-building"></i>
+									<h3><a href="https://www.hansoninc.com" target="_blank" class="subtle underline">Hanson Inc.</a></h3>
+								</div>
+								<div data-aos="fade-up" data-aos-delay="300" class="stat">
+									<i class="fas fa-list"></i>
+									<h3>3+ years Experience</h3>
+								</div>
+								<div data-aos="fade-up" data-aos-delay="400" class="stat">
+									<i class="fas fa-trophy"></i>
+									<h3>1 Fantasy Football Championship</h3>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -100,9 +126,43 @@
 <footer class="main">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12">
-				<hr class="hr"/>
-				<p>This is the footer</p>
+			<div class="footer col-xs-12">
+				<div class="footer__content" data-aos="fade-up">
+					<a href="/" alt="Home" class="internal-link">
+						<img src="/img/logos/logo-light.svg">
+					</a>
+					<p>&copy; Copyright 2020</p>
+				</div>
+				<div class="footer__social">
+					<div class="social" data-aos="fade-up">
+						<a href="https://www.instagram.com/brianodo/" alt="Instagram" target="_blank">
+							<span class="social__icon"><i class="fab fa-instagram"></i></span>
+							<span class="social__background"></span>
+						</a>
+					</div>
+					<div class="social" data-aos="fade-up" data-aos-delay="100">
+						<a href="https://twitter.com/brianodo" alt="Twitter" target="_blank">
+							<span class="social__icon"><i class="fab fa-twitter"></i></span>
+							<span class="social__background"></span>
+						</a>
+					</div>
+					<div class="social" data-aos="fade-up" data-aos-delay="200">
+						<a href="https://www.flickr.com/photos/brianodo/" alt="Instagram" target="_blank">
+							<span class="social__icon"><i class="fab fa-flickr"></i></span>
+							<span class="social__background"></span>
+						</a>
+					</div>
+					<div class="social" data-aos="fade-up" data-aos-delay="300">
+						<a href="https://codepen.io/brianodo" alt="CodePen" target="_blank">
+							<span class="social__icon"><i class="fab fa-codepen"></i></span>
+							<span class="social__background"></span>
+						</a>
+					</div>
+					<div class="social open-contact-form" data-aos="fade-up" data-aos-delay="400">
+						<span class="social__icon"><i class="fas fa-envelope"></i></span>
+						<span class="social__background"></span>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

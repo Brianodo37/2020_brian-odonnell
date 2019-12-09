@@ -1,5 +1,5 @@
 header {
-	background-color: #252627;
+	z-index: 1000;
 
     .nav {
         display: flex;
@@ -10,10 +10,21 @@ header {
             width: 50%;
             display: flex;
             justify-content: flex-start;
-            align-items: center;
+			align-items: center;
 
-             a {
-                width: 275px;
+			img {
+				transition: transform .2s ease;
+			}
+
+			&:hover {
+				img {
+					transform: scale(1.1);
+					transition: transform .2s ease;
+				}
+			}
+
+            a {
+                width: 65px;
             }
         }
 
@@ -35,46 +46,9 @@ header {
 					margin: 0 15px;
 
 					a.nav-link {
-						position: relative;
 						padding: 0 5px;
 						transition: color .35s ease;
 						color: white;
-
-						&:before,
-						&:after {
-							content: "";
-							position: absolute;
-							bottom: 0;
-							right: 0;
-							left: auto;
-							width: 0;
-							height: 3px;
-							z-index: 2;
-						}
-
-						&:before {
-							background-color: #4BA3C3;
-							transition: all .25s cubic-bezier(.694,.048,.335,1) .15s;
-						}
-
-						&:after {
-							background-color: #BB0A21;
-							transition: all .25s cubic-bezier(.694,.048,.335,1);
-						}
-
-						&:hover {
-							transition: color .35s ease;
-
-							&:before {
-								width: 100%;
-								left: 0;
-							}
-
-							&:after {
-								width: 100%;
-								left: 0;
-							}
-						}
 
 						&.active {
 							&:before {

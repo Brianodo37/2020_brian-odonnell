@@ -7,7 +7,7 @@
 <!--(bake includes/head.html)-->
 
 <!-- Standard init -->
-<body data-section="" data-page="">
+<body data-section="" data-page="" class="home">
 
 <!--(bake includes/nav.html)-->
 
@@ -16,20 +16,44 @@
 	<div data-router-view="home" class="home">
 		<div class="home__container">
 			<div class="home__landing">
-				<div id="particles-js"></div>
-				<h1>Brian O'Donnell</h1>
-				<h2>Front-End Web Developer</h2>
-				<div class="cta-link">
-					<a href="/work.html" alt="Work" class="internal-link">Work</a>
+				<h1 data-aos="fade-up">Brian O'Donnell</h1>
+				<h2 data-aos="fade-up" data-aos-delay="100">Front-End Web Developer</h2>
+				<div data-aos="fade-up" data-aos-delay="200" class="cta-link">
 					<span class="cta-link__border"></span>
+					<a href="/work.html" alt="Work" class="internal-link">Work</a>
 				</div>
+				<div id="particles-js"></div>
 			</div>
 		</div>
 		<div class="wrapper">
 			<div class="container">
-				<div class="row">
-					<div class="col-xs-12">
-						
+				<div class="bio">
+					<div class="row">
+						<div class="bio__photo col-md-4">
+							<span data-aos="fade-up" data-aos-delay="50" class="bio__border" ></span>
+							<img src="/img/bio.jpg" data-aos="fade-up">
+						</div>
+						<div class="bio__summary col-md-8">
+							<p data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis neque volutpat, accumsan magna ac, commodo metus. Suspendisse potenti. Fusce posuere dolor sed dolor ultrices egestas. Proin non dui sit amet neque ultrices pellentesque vitae vel odio. Nullam sem nibh, consequat ut imperdiet in, blandit id magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas viverra aliquet diam, et aliquam leo condimentum nec.</p>
+							<div class="bio__stats">
+								<div data-aos="fade-up" data-aos-delay="100" class="stat">
+									<i class="fas fa-globe-americas"></i>
+									<h3>Toledo, OH</h3>
+								</div>
+								<div data-aos="fade-up" data-aos-delay="200" class="stat">
+									<i class="fas fa-building"></i>
+									<h3><a href="https://www.hansoninc.com" target="_blank" class="subtle underline">Hanson Inc.</a></h3>
+								</div>
+								<div data-aos="fade-up" data-aos-delay="300" class="stat">
+									<i class="fas fa-list"></i>
+									<h3>3+ years Experience</h3>
+								</div>
+								<div data-aos="fade-up" data-aos-delay="400" class="stat">
+									<i class="fas fa-trophy"></i>
+									<h3>1 Fantasy Football Championship</h3>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

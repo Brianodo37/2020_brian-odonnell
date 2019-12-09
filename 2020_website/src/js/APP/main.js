@@ -4,6 +4,8 @@
 
 import '../lib/transitions.js';
 import '../lib/particles.min.js';
+// import '../lib/aos.js';
+import AOS from 'aos';
 
 (function() {
 	/**
@@ -19,6 +21,7 @@ import '../lib/particles.min.js';
 		module.initNavControls();
 		module.initContactFormControls();
 		module.initParticles();
+		module.initAOS();
 	};
 
 	module.initPreloader = function() {
@@ -110,6 +113,7 @@ import '../lib/particles.min.js';
 			if ($('.form__popup').hasClass('hidden')) {
 				$('.form__popup').removeClass('hidden');
 				$('.form__cover').removeClass('hidden');
+				$('body').addClass('noscroll');
 
 				setTimeout(function() {
 					$('.form__popup').removeClass('state-closed');
@@ -130,6 +134,7 @@ import '../lib/particles.min.js';
 			if (!$('.form__popup').hasClass('hidden')) {
 				$('.form__popup').addClass('state-closed');
 				$('.form__cover').addClass('state-closed');
+				$('body').removeClass('noscroll');
 
 				setTimeout(function() {
 					$('.form__popup').addClass('hidden');
@@ -141,8 +146,16 @@ import '../lib/particles.min.js';
 
 	module.initParticles = function() {
 		particlesJS.load('particles-js', 'json/particles-config.json', function() {
-			console.log('callback - particles.js config loaded');
+			console.log('Particles.js successfully loaded');
 		});
+	}
+
+	module.initAOS = function() {
+		setTimeout(function() {
+			AOS.init({
+				once: true
+			});
+		}, 2000);
 	}
 
 	/**

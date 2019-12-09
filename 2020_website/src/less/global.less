@@ -3,6 +3,10 @@ h1, h2, h3, h4, h5 h6 {
 	font-family: 'league spartan', Helvetica, Arial,  sans-serif;
 }
 
+body {
+	color: #252627;
+}
+
 // Links
 a {
     text-decoration: none;
@@ -14,11 +18,68 @@ a {
     &:active,
     &:visited {
         text-decoration: none;
-    }
+	}
+
+	&.subtle {
+		color: #252627;
+
+		&:hover {
+			color: #252627;
+		}
+
+		&:active,
+		&:visited {
+			color: #252627;
+		}
+	}
+
+	&.underline {
+		position: relative;
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			left: auto;
+			width: 0;
+			height: 3px;
+			z-index: 2;
+		}
+
+		&:before {
+			background-color: #4BA3C3;
+			transition: all .25s cubic-bezier(.694,.048,.335,1) .15s;
+		}
+
+		&:after {
+			background-color: #BB0A21;
+			transition: all .25s cubic-bezier(.694,.048,.335,1);
+		}
+
+		&:hover {
+			transition: color .35s ease;
+
+			&:before {
+				width: 100%;
+				left: 0;
+			}
+
+			&:after {
+				width: 100%;
+				left: 0;
+			}
+		}
+	}
 }
 
 .fake-content {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+body.noscroll {
+	overflow: hidden;
 }
