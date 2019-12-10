@@ -1,0 +1,28 @@
+// Compile "main.scss" as "css/main.min.css"
+
+/**
+ * Import Bootstrap source 
+ */
+
+// TODO: setup Yoemen Generator to build Bootstrap files
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/**
+ * Import other site styles
+*/
+@import "css/variables.scss";
+@import "css/navigation.scss";
+@import "css/footer.scss";
+@import "css/fonts.scss";
+@import "css/slider.scss";
+
+
+/**
+ * General
+ */
+
+img {
+	max-width: 100% !important;
+	height: auto;
+	vertical-align: middle;
+}

@@ -1,0 +1,181 @@
+.slick-slider {
+
+	.slick-track{
+		display: flex;
+	}
+
+	.slick-arrow {
+		width: auto;
+		height: auto;
+		&:before{
+			font-family: $icomoon;
+			font-size: 42px;
+			color: $dark-gray;
+		}
+
+		&.slick-next {
+			&:before{
+				content: "\e91b";
+			}
+
+			@include media-breakpoint-down(sm) {
+				right: -14px;
+			}
+		}
+
+		&.slick-prev {				
+			&:before{
+				content: "\e919";
+			}
+
+			@include media-breakpoint-down(sm) {
+				left: -14px;
+			}				
+		}
+	}
+
+	.slick-dots {
+		position: initial;
+		li {
+			button:before{
+				font-size: 54px;
+				opacity: 1;
+			}
+
+			&:not(.slick-active){
+				button:before{
+					font-family: $icomoon;
+					content: "\e926";
+					font-size: 14px;
+				}
+			} 
+		}
+		//hide dots when there is only one
+	    > li:only-child {
+	        display: none;
+	    }
+		
+	}
+	
+
+	&.single{
+		max-width: 100%;
+
+		@include media-breakpoint-up(md) {		
+			margin: 0 auto 30px auto;
+			max-width: 80%;
+		}
+
+		.slide {
+			padding:10px;
+			display: flex;
+			height: auto;		
+			justify-content: center;
+			
+			@include media-breakpoint-up(md) {
+				align-items: center;
+			}
+
+			&__card {
+				display: flex;
+				align-items: center;
+				flex-flow: column;
+				width: 100%;
+				position: relative;
+
+				@include media-breakpoint-up(md) {
+					flex-flow: row;
+				}				
+			}
+
+			&__image-wrapper {
+				position: relative;
+				width: 100%;
+				display:block;
+				@include media-breakpoint-up(md) {
+					width: 35%;
+					position: absolute;
+					height: 100%;
+					top: 0;
+					bottom: 0;
+				}
+
+				@include media-breakpoint-down(sm){
+					height: 300px;
+					overflow: hidden;
+				}
+
+				span {
+					background-size: cover;
+					height: 100%;
+					display: block;
+					background-position: center;
+				}	 
+			}
+
+			&__detail{
+				width: 100%;
+				padding:32px;
+
+				@include media-breakpoint-up(md) {
+					width: 65%;
+					position: relative;
+					left: 35%;
+				}
+			}
+
+			&:focus{outline:none;}
+		} 		 
+	}
+	
+	&.stacked {
+		.slide {
+			padding: 0 20px;
+			display: flex;
+			height: auto;
+			align-items: center;
+			justify-content: center; 
+
+			&__card {
+				height: 100%;
+				width: 100%;
+				overflow: hidden;
+				flex-direction: column;
+			}
+
+			&__image-wrapper {
+				position: relative;
+				height: 300px;
+				display: block;
+
+				span {
+					background-size: cover;
+					background-position: center;
+					width: 100%;
+					height: 100%;
+					display: block;
+				}
+	 
+			}
+
+			&__detail {
+				padding: 32px;
+				flex-direction: column;
+				align-items: baseline;
+				height: 100%;
+				&--category {
+					line-height: 1em;
+					margin-bottom: 10px;
+					span {
+						@extend .h6;
+					}
+				}
+				.btn.btn--chevron {
+					margin-top: auto;
+				}
+			}
+
+			&:focus{outline:none;}
+		}
+	}
+}

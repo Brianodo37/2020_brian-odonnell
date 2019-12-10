@@ -109,7 +109,7 @@ import AOS from 'aos';
 	}
 
 	module.initContactFormControls = function() {
-		$('.open-contact-form').on('click', function() {
+		$('.open-form-js').on('click', function() {
 			if ($('.form__popup').hasClass('hidden')) {
 				$('.form__popup').removeClass('hidden');
 				$('.form__cover').removeClass('hidden');
@@ -122,7 +122,7 @@ import AOS from 'aos';
 			}
 		});
 
-		$('.close-contact-form').on('click', function() {
+		$('.close-form-js').on('click', function() {
 			closeForm();
 		});
 
@@ -145,9 +145,11 @@ import AOS from 'aos';
 	}
 
 	module.initParticles = function() {
-		particlesJS.load('particles-js', 'json/particles-config.json', function() {
-			console.log('Particles.js successfully loaded');
-		});
+		if ($('body').hasClass('home-page')) {
+			particlesJS.load('particles-js', 'json/particles-config.json', function() {
+				// console.log('Particles.js successfully loaded');
+			});
+		}
 	}
 
 	module.initAOS = function() {

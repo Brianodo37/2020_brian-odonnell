@@ -7,7 +7,7 @@
 <!--(bake includes/head.html)-->
 
 <!-- Standard init -->
-<body data-section="" data-page="" class="home">
+<body data-section="" data-page="" class="home-page">
 
 <!--(bake includes/nav.html)-->
 
@@ -18,41 +18,69 @@
 			<div class="home__landing">
 				<h1 data-aos="fade-up">Brian O'Donnell</h1>
 				<h2 data-aos="fade-up" data-aos-delay="100">Front-End Web Developer</h2>
-				<div data-aos="fade-up" data-aos-delay="200" class="cta-link">
-					<span class="cta-link__border"></span>
-					<a href="/work.html" alt="Work" class="internal-link">Work</a>
+				<div data-aos="fade-up" data-aos-delay="200" class="button">
+					<span class="button__background"></span>
+					<span class="button__border open-form-js">Contact Me</span>
 				</div>
 				<div id="particles-js"></div>
 			</div>
 		</div>
-		<div class="wrapper">
+
+		<div class="work-preview">
 			<div class="container">
-				<div class="bio">
-					<div class="row">
-						<div class="bio__photo col-md-4">
-							<span data-aos="fade-up" data-aos-delay="50" class="bio__border" ></span>
-							<img src="/img/bio.jpg" data-aos="fade-up">
+				<div class="row">
+					<div data-aos="fade-up" class="work-preview__intro col-xs-12">
+						<h2 class="tac">Most Recent Work</h2>
+					</div>
+					<div class="feature">
+						<div class="feature__image col-md-6">
+							<img src="/img/devices/hanson-tablet.png" alt="Hanson Inc." data-aos="fade-up">
 						</div>
-						<div class="bio__summary col-md-8">
-							<p data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis neque volutpat, accumsan magna ac, commodo metus. Suspendisse potenti. Fusce posuere dolor sed dolor ultrices egestas. Proin non dui sit amet neque ultrices pellentesque vitae vel odio. Nullam sem nibh, consequat ut imperdiet in, blandit id magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas viverra aliquet diam, et aliquam leo condimentum nec.</p>
-							<div class="bio__stats">
-								<div data-aos="fade-up" data-aos-delay="100" class="stat">
-									<i class="fas fa-globe-americas"></i>
-									<h3>Toledo, OH</h3>
-								</div>
-								<div data-aos="fade-up" data-aos-delay="200" class="stat">
-									<i class="fas fa-building"></i>
-									<h3><a href="https://www.hansoninc.com" target="_blank" class="subtle underline">Hanson Inc.</a></h3>
-								</div>
-								<div data-aos="fade-up" data-aos-delay="300" class="stat">
-									<i class="fas fa-list"></i>
-									<h3>3+ years Experience</h3>
-								</div>
-								<div data-aos="fade-up" data-aos-delay="400" class="stat">
-									<i class="fas fa-trophy"></i>
-									<h3>1 Fantasy Football Championship</h3>
-								</div>
+						<div class="feature__snippet col-md-6">
+							<img src="/img/logos/hanson.png" alt="Hanson" class="feature__logo" data-aos="fade-up">
+							<h2 data-aos="fade-up" data-aos-delay="100" class="feature__title">Website rebuild</h2>
+							<p data-aos="fade-up" data-aos-delay="200" class="feature__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vestibulum, urna id viverra tincidunt, nisi augue dignissim ligula, et rhoncus turpis lacus tempus neque. Nulla tristique mi ut euismod dapibus. Etiam nec consequat leo. Curabitur eget scelerisque leo. Integer at lacus non mi vulputate pretium id quis tellus. Curabitur faucibus velit nec lacinia dictum. Donec sed ligula nec nunc interdum mattis.</p>
+							<div data-aos="fade-up" data-aos-delay="300" class="button button--blue">
+								<span class="button__background"></span>
+								<a href="#" alt="Hanson" class="button__border internal-link">More Info</a>
 							</div>
+						</div>
+					</div>
+
+					<div class="feature">
+						<div class="feature__image col-md-6">
+							<img src="/img/devices/rti-tablet.png" alt="RTI" data-aos="fade-up">
+						</div>
+						<div class="feature__snippet col-md-6">
+							<img src="/img/logos/rti.png" alt="RTI" class="feature__logo" data-aos="fade-up">
+							<h2 data-aos="fade-up" data-aos-delay="100"class="feature__title">Website rebuild and CMS integration</h2>
+							<p data-aos="fade-up" data-aos-delay="200" class="feature__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vestibulum, urna id viverra tincidunt, nisi augue dignissim ligula, et rhoncus turpis lacus tempus neque. Nulla tristique mi ut euismod dapibus. Etiam nec consequat leo. Curabitur eget scelerisque leo. Integer at lacus non mi vulputate pretium id quis tellus. Curabitur faucibus velit nec lacinia dictum. Donec sed ligula nec nunc interdum mattis.</p>
+							<div data-aos="fade-up" data-aos-delay="300" class="button button--blue">
+								<span class="button__background"></span>
+								<a href="#" alt="Restorative Therapies" class="button__border internal-link">More Info</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="feature">
+						<div class="feature__image col-md-6">
+							<img src="/img/devices/ascend-tablet.png" alt="Ascend" data-aos="fade-up">
+						</div>
+						<div class="feature__snippet col-md-6">
+							<img src="/img/logos/alside.png" alt="Alside" class="feature__logo" data-aos="fade-up">
+							<h2 data-aos="fade-up" data-aos-delay="100" class="feature__title">Website build</h2>
+							<p data-aos="fade-up" data-aos-delay="200" class="feature__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vestibulum, urna id viverra tincidunt, nisi augue dignissim ligula, et rhoncus turpis lacus tempus neque. Nulla tristique mi ut euismod dapibus. Etiam nec consequat leo. Curabitur eget scelerisque leo. Integer at lacus non mi vulputate pretium id quis tellus. Curabitur faucibus velit nec lacinia dictum. Donec sed ligula nec nunc interdum mattis.</p>
+							<div data-aos="fade-up" data-aos-delay="300" class="button button--blue">
+								<span class="button__background"></span>
+								<a href="#" alt="Ascend" class="button__border internal-link">More Info</a>
+							</div>
+						</div>
+					</div>
+
+					<div data-aos="fade-up" class="work-preview__cta col-xs-12">
+						<div class="button button--blue">
+							<span class="button__background"></span>
+							<span class="button__border open-form-js">See More</span>
 						</div>
 					</div>
 				</div>

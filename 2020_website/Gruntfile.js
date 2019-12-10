@@ -12,6 +12,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         bake: { default: { files: {
             'build/index.html': 'src/index.html',
+            'build/about.html': 'src/about.html',
             'build/work.html': 'src/work.html',
             'build/photography.html': 'src/photography.html'
         } } },
