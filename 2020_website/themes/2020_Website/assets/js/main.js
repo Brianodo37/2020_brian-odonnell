@@ -23,37 +23,16 @@ import AOS from "./lib/aos.js";
 	});
 
 	function startPreloader() {
-		// Unhides the preloader and sets it back to opacity: 0;
-		$('.preloader').removeClass('hidden');
-
-		// Closes the preloader doors after 0.1s just to give the
-		// preloader time to unhide
 		setTimeout(function() {
 			$('.preloader').removeClass('loaded');
-		}, 100);
-
-		// Fades in the loader animation after 0.5s
-		setTimeout(function() {
-			$('.loader').removeClass('state-hidden');
-		}, 500);
+		}, 0);
 	}
 
 	function endPreloader() {
-		// Fades out the loader animation after 0.25s
-		setTimeout(function() {
-			$('.loader').addClass('state-hidden');
-		}, 1250);
-
 		// Runs the preloader for 1.5s
 		setTimeout(function() {
 			$('.preloader').addClass('loaded');
 		}, 1500);
-
-		// Sets the preloader as hidden after 2s so the page
-		// isn't rendering an opacity: 0; element
-		setTimeout(function() {
-			$('.preloader').addClass('hidden');
-		}, 2000);
 	}
 
 	// ----- Active Nav Tab Controls -----
@@ -124,14 +103,32 @@ import AOS from "./lib/aos.js";
 		initParticles();
 	})
 
+	$(window).on('popstate', function() {
+		initParticles();
+	});
+
+	// function initParticles() {
+	// 	setTimeout(function() {
+	// 		if ($('body').hasClass('home-page')) {
+	// 			particlesJS.load('particles-js', 'wp-content/themes/2020_Website/assets/json/particles-config.json', function() {
+	// 			});
+	// 		}
+	// 	}, 1000)
+	// }
+
+	console.log($('.loader').css('opacity'));
 	function initParticles() {
-		setTimeout(function() {
-			if ($('body').hasClass('home-page')) {
+		var particlesCheck = setInterval(function() {
+			console.log($('.loader').css('opacity'));
+			if ($('.loader').css('opacity') == 0 && $('body').hasClass('home-page')) {
+				console.log('Success');
 				particlesJS.load('particles-js', 'wp-content/themes/2020_Website/assets/json/particles-config.json', function() {
 				});
+				clearInterval(particlesCheck);
 			}
-		}, 1000)
+		}, 100);
 	}
+
 
 	// ----- Initialize Animate On Scroll (AOS) -----
 	initAOS();
@@ -140,12 +137,19 @@ import AOS from "./lib/aos.js";
 		initAOS();
 	});
 
+	$(window).on('popstate', function() {
+		initAOS();
+	});
+
 	function initAOS() {
-		setTimeout(function() {
-			AOS.init({
-				once: true
-			});
-		}, 2000);
+		var preloaderFinish = setInterval(function() {
+			if ($('.preloader__cover--left')[0].scrollWidth == 0 && $('.preloader').hasClass('loaded')) {
+				AOS.init({
+					once: true
+				});
+				clearInterval(preloaderFinish);
+			}
+		}, 100);
 	}
 
 	// ----- Add page specific class to body on intial page load -----

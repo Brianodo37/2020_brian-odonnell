@@ -17,12 +17,13 @@
 			height: 100px;
 			z-index: 1001;
 			transition: opacity .25s ease;
+			transition-delay: .5s;
 			opacity: 1;
 
-			&.state-hidden {
-				opacity: 0;
-				transition: opacity .25s ease;
-			}
+			// &.state-hidden {
+			// 	opacity: 0;
+			// 	transition: opacity .25s ease;
+			// }
 
 			hr {
 				border: 0;
@@ -79,6 +80,14 @@
 			&__cover {
 				width: 0%;
 				transition: width .5s ease;
+				transition-delay: .25s;
+			}
+
+			&__animation {
+				.loader {
+					opacity: 0;
+					transition: opacity .25s ease;
+				}
 			}
 		}
 	}

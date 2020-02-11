@@ -16,6 +16,8 @@
 					<div class="col-xs-12">
 						<div class="work-content">
 							<h1>WORK</h1>
+
+							<p data-aos="fade-up">This is some test content to just see if the photography page is working correctly with the rest of the pages. It looked like it wasn't transitioning like the others.</p>
 						</div>
 					</div>
 				</div>

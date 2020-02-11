@@ -12,13 +12,13 @@ export default class Fade extends Highway.Transition {
 			done();
 		}, 500);
 
-		// console.log('Coming from:');
-		// console.log(from);
+		console.log('Coming from:');
+		console.log(from);
 	}
 
 	in({from, to, done}) {
-		// console.log('Going to:');
-		// console.log(to);
+		console.log('Going to:');
+		console.log(to);
 
 		from.remove();
 

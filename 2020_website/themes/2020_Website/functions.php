@@ -89,3 +89,37 @@ endif; // content navigation
 //TODO: Not sure if we want to keep this or move it
 //used in archive loop to go to older pages
 
+// Custom Post Type Start
+function create_posttype() {
+	register_post_type( 'work',
+		array(
+			'labels' => array(
+				'name' => __('Work'),
+				'singular_name' => __('Work')
+			),
+			'public' => true,
+			'has_archive' => false,
+			'rewrite' => array('slug' => 'work'),
+			'show_in_rest' => true,
+			'supports' => array('title', 'editor')
+		)
+	);
+
+	register_post_type( 'photography',
+		array(
+			'labels' => array(
+				'name' => __('Photography'),
+				'singular_name' => __('Photography')
+			),
+			'public' => true,
+			'has_archive' => false,
+			'rewrite' => array('slug' => 'photography'),
+			'show_in_rest' => true,
+			'supports' => array('title', 'editor')
+		)
+	);
+}
+// Hooking up our function to theme setup
+add_action( 'init', 'create_posttype' );
+// Custom Post Type End
+

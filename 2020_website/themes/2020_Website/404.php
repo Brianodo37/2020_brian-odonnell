@@ -10,9 +10,9 @@
 
 	<h1>Not found</h1>
 	<p>It looks like nothing was found at this location. Maybe try a search?</p>
-	<div><?php get_search_form(); ?></div>		
+	<div><?php get_search_form(); ?></div>
 
 
-	get_footer(); 
+	<?php get_footer();
 
 ?>

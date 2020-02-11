@@ -117,12 +117,3 @@
 	</div>
 
 	<main id="main" class="">
-
-		<?php
-			// Adjust the layout for pages showing the blog sidebar
-			// If Blog Landing, Single or Archive (Category, Tag, Author or a Date based page)
-			// Note is_home will only be true on the page which you set as the "Posts page"
-			if ( is_home() || is_single() || is_archive() ) : ?>
-				<div class="row">
-					<div class="col-sm-12 col-md-8">
-			<?php endif; ?>
