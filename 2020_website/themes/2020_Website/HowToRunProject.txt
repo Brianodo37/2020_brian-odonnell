@@ -1,0 +1,10 @@
+Transpile JS using WebPack:
+---------------------------
+1. Go to themes > 2020_Website
+2. Run "npx webpack"
+
+
+Watch for CSS code changes:
+---------------------------
+1. Go to themes > 2020_Website
+2. Run "grunt watch"

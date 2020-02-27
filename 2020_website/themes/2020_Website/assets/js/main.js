@@ -116,12 +116,12 @@ import AOS from "./lib/aos.js";
 	// 	}, 1000)
 	// }
 
-	console.log($('.loader').css('opacity'));
+	// console.log($('.loader').css('opacity'));
 	function initParticles() {
 		var particlesCheck = setInterval(function() {
-			console.log($('.loader').css('opacity'));
+			// console.log($('.loader').css('opacity'));
 			if ($('.loader').css('opacity') == 0 && $('body').hasClass('home-page')) {
-				console.log('Success');
+				// console.log('Success');
 				particlesJS.load('particles-js', 'wp-content/themes/2020_Website/assets/json/particles-config.json', function() {
 				});
 				clearInterval(particlesCheck);
