@@ -39,17 +39,17 @@
             &:nth-child(3n+1) {
                 padding: 0 15px 0 0;
             }
-    
+
             &:nth-child(3n+2) {
                 padding: 0 7.5px;
             }
-    
+
             &:nth-child(3n+3) {
                 padding: 0 0 0 15px;
             }
         }
     }
-            
+
     &__image {
         img {
             max-width: 100%;
@@ -60,5 +60,17 @@
         img {
             width: 20%;
         }
-    }
+	}
+
+	a {
+		h3 {
+			color: #252627;
+
+			&:hover,
+			&:active,
+			&:visited {
+				color: #252627;
+			}
+		}
+	}
 }
