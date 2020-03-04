@@ -7,6 +7,9 @@
 	<!-- Font Awesome CDN link -->
 	<script src="https://kit.fontawesome.com/01ecc35421.js" crossorigin="anonymous"></script>
 
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+
 	<?php wp_head(); ?>
 </head>
 
@@ -44,7 +47,7 @@
 	</header>
 
 	<!-- Preloader -->
-	<div class="preloader">
+	<!-- <div class="preloader">
 		<div class="preloader__animation">
 			<div class="loader">
 				<hr/><hr/><hr/><hr/>
@@ -53,7 +56,7 @@
 
 		<div class="preloader__cover preloader__cover--left"></div>
 		<div class="preloader__cover preloader__cover--right"></div>
-	</div>
+	</div> -->
 
 	<!-- Contact Form Popup -->
 	<div class="form__cover state-closed hidden"></div>

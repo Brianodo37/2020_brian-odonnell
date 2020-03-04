@@ -16,33 +16,13 @@
 						<?php
 							$rows = get_field('images');
 							if($rows) {
+								echo '<div class="single-item">';
 								foreach($rows as $row) {
 									echo '<img src="' . $row['image'] . '">';
 								}
+								echo '</div>';
 							}
 						?>
-
-						<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-							<div class="carousel-inner">
-								<?php
-								$rows = get_field('images');
-								if($rows) {
-									foreach($rows as $row) { ?>
-										<div class="carousel-item active">
-											<img src="<?php echo $row['image']; ?>">
-										</div>
-									<?php }
-								} ?>
-							</div>
-							<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-								<span class="sr-only">Previous</span>
-							</a>
-							<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-								<span class="carousel-control-next-icon" aria-hidden="true"></span>
-								<span class="sr-only">Next</span>
-							</a>
-						</div>
 					</div>
 				</div>
 
@@ -71,6 +51,7 @@
 	</div>
 </main>
 
-<script>$('.carousel').carousel()</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 
 <?php get_footer(); ?>

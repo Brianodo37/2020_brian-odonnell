@@ -1,4 +1,4 @@
-import "./transitions.js";
+// import "./transitions.js";
 import "./lib/particles.min.js";
 import AOS from "./lib/aos.js";
 
@@ -6,60 +6,60 @@ import AOS from "./lib/aos.js";
 	'use strict';
 
 	// ----- Preloader Controls -----
-	endPreloader();
+	// endPreloader();
 
 	// Starts and ends the preloader when clicking a link
 	// with '.internal-link'
-	$('.internal-link').on('click', function() {
-		startPreloader();
-		endPreloader();
-	});
+	// $('.internal-link').on('click', function() {
+	// 	startPreloader();
+	// 	endPreloader();
+	// });
 
 	// Runs when the back or forward button is clicked
 	// (popstate changes)
-	$(window).on('popstate', function() {
-		startPreloader();
-		endPreloader();
-	});
+	// $(window).on('popstate', function() {
+	// 	startPreloader();
+	// 	endPreloader();
+	// });
 
-	function startPreloader() {
-		setTimeout(function() {
-			$('.preloader').removeClass('loaded');
-		}, 0);
-	}
+	// function startPreloader() {
+	// 	setTimeout(function() {
+	// 		$('.preloader').removeClass('loaded');
+	// 	}, 0);
+	// }
 
-	function endPreloader() {
-		// Runs the preloader for 1.5s
-		setTimeout(function() {
-			$('.preloader').addClass('loaded');
-		}, 1500);
-	}
+	// function endPreloader() {
+	// 	// Runs the preloader for 1.5s
+	// 	setTimeout(function() {
+	// 		$('.preloader').addClass('loaded');
+	// 	}, 1500);
+	// }
 
 	// ----- Active Nav Tab Controls -----
-	setActive();
+	// setActive();
 
 	// Runs any time a link is clicked
-	$('a').on('click', function() {
-		setActive();
-	});
+	// $('a').on('click', function() {
+	// 	setActive();
+	// });
 
 	// Runs when the back or forward button is clicked
 	// (popstate changes)
-	$(window).on('popstate', function() {
-		setActive();
-	});
+	// $(window).on('popstate', function() {
+	// 	setActive();
+	// });
 
-	function setActive() {
-		// After a 1sec delay it searches for '.work' and '.photography'
-		// and sets them as active if found
-		setTimeout(function() {
-			var activePage = $('#page')[0].attributes['data-router-view'].value;
-			if ($('#' + activePage)) {
-				$('.nav-link.active').removeClass('active');
-				$('#' + activePage).addClass('active');
-			}
-		}, 1200);
-	}
+	// function setActive() {
+	// 	After a 1sec delay it searches for '.work' and '.photography'
+	// 	and sets them as active if found
+	// 	setTimeout(function() {
+	// 		var activePage = $('#page')[0].attributes['data-router-view'].value;
+	// 		if ($('#' + activePage)) {
+	// 			$('.nav-link.active').removeClass('active');
+	// 			$('#' + activePage).addClass('active');
+	// 		}
+	// 	}, 1200);
+	// }
 
 	// ----- Contact Form Controls -----
 	$('.open-form-js').on('click', function() {
@@ -97,37 +97,30 @@ import AOS from "./lib/aos.js";
 	}
 
 	// ----- Initialize Particles JS -----
-	initParticles();
+	if ($('body').hasClass('home-page')) {
+		particlesJS.load('particles-js', '/wp-content/themes/2020_Website/assets/json/particles-config.json', function() {
+		});
+	}
 
-	$('.internal-link').on('click', function() {
-		initParticles();
-	})
+	// initParticles();
 
-	$(window).on('popstate', function() {
-		initParticles();
-	});
+	// $('.internal-link').on('click', function() {
+	// 	initParticles();
+	// })
+
+	// $(window).on('popstate', function() {
+	// 	initParticles();
+	// });
 
 	// function initParticles() {
-	// 	setTimeout(function() {
-	// 		if ($('body').hasClass('home-page')) {
+	// 	var particlesCheck = setInterval(function() {
+	// 		if ($('.loader').css('opacity') == 0 && $('body').hasClass('home-page')) {
 	// 			particlesJS.load('particles-js', 'wp-content/themes/2020_Website/assets/json/particles-config.json', function() {
 	// 			});
+	// 			clearInterval(particlesCheck);
 	// 		}
-	// 	}, 1000)
+	// 	}, 100);
 	// }
-
-	// console.log($('.loader').css('opacity'));
-	function initParticles() {
-		var particlesCheck = setInterval(function() {
-			// console.log($('.loader').css('opacity'));
-			if ($('.loader').css('opacity') == 0 && $('body').hasClass('home-page')) {
-				// console.log('Success');
-				particlesJS.load('particles-js', 'wp-content/themes/2020_Website/assets/json/particles-config.json', function() {
-				});
-				clearInterval(particlesCheck);
-			}
-		}, 100);
-	}
 
 
 	// ----- Initialize Animate On Scroll (AOS) -----
@@ -142,19 +135,26 @@ import AOS from "./lib/aos.js";
 	});
 
 	function initAOS() {
-		var preloaderFinish = setInterval(function() {
-			if ($('.preloader__cover--left')[0].scrollWidth == 0 && $('.preloader').hasClass('loaded')) {
-				AOS.init({
-					once: true
-				});
-				clearInterval(preloaderFinish);
-			}
-		}, 100);
+		AOS.init({
+			once: true
+		})
 	}
 
-	// ----- Add page specific class to body on intial page load -----
-	var page = $('#page')[0].attributes['data-router-view'].value + '-page';
-	$('body').addClass(page);
+	// function initAOS() {
+	// 	var preloaderFinish = setInterval(function() {
+	// 		if ($('.preloader__cover--left')[0].scrollWidth == 0 && $('.preloader').hasClass('loaded')) {
+	// 			AOS.init({
+	// 				once: true
+	// 			});
+	// 			clearInterval(preloaderFinish);
+	// 		}
+	// 	}, 100);
+	// }
+
+	// ----- Seting active nav link -----
+	var page = '#' + $('#page')[0].attributes['data-router-view'].value;
+
+	$(page).addClass('active');
 
 	// ----- Mobile Nav Controls -----
 	$('.open-nav-js').on('click', function() {
@@ -171,13 +171,17 @@ import AOS from "./lib/aos.js";
 		}
 	});
 
-	$('.nav-link').on('click', function() {
-		if (!$('.mobile-nav-js').hasClass('state-closed')) {
-			setTimeout(function() {
-				$('.mobile-nav-js').addClass('state-closed');
-				$('body').removeClass('noscroll');
-			}, 1000);
-		}
+	// $('.nav-link').on('click', function() {
+	// 	if (!$('.mobile-nav-js').hasClass('state-closed')) {
+	// 		setTimeout(function() {
+	// 			$('.mobile-nav-js').addClass('state-closed');
+	// 			$('body').removeClass('noscroll');
+	// 		}, 1000);
+	// 	}
+	// });
+
+	$('.single-item').slick({
+		autoplay: true,
 	});
 
 }(jQuery));

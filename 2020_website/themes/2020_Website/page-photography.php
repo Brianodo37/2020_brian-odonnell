@@ -9,7 +9,7 @@
 ?>
 
 <main data-router-wrapper>
-	<div data-router-view="photo" id="page" class="photo">
+	<div data-router-view="photography" id="page" class="photo">
 		<div class="photo__container">
 			<div class="container">
 				<div class="row">
