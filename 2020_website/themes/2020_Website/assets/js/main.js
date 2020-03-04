@@ -96,8 +96,17 @@ import AOS from "./lib/aos.js";
 		}
 	}
 
+	// ----- Seting active nav link -----
+	var page = $('#page')[0].attributes['data-router-view'].value;
+
+	$('body').addClass(page);
+
+	var pageID = '#' + $('#page')[0].attributes['data-router-view'].value;
+
+	$(pageID).addClass('active');
+
 	// ----- Initialize Particles JS -----
-	if ($('body').hasClass('home-page')) {
+	if ($('body').hasClass('home')) {
 		particlesJS.load('particles-js', '/wp-content/themes/2020_Website/assets/json/particles-config.json', function() {
 		});
 	}
@@ -151,11 +160,6 @@ import AOS from "./lib/aos.js";
 	// 	}, 100);
 	// }
 
-	// ----- Seting active nav link -----
-	var page = '#' + $('#page')[0].attributes['data-router-view'].value;
-
-	$(page).addClass('active');
-
 	// ----- Mobile Nav Controls -----
 	$('.open-nav-js').on('click', function() {
 		if ($('.mobile-nav-js').hasClass('state-closed')) {
@@ -171,14 +175,28 @@ import AOS from "./lib/aos.js";
 		}
 	});
 
-	// $('.nav-link').on('click', function() {
-	// 	if (!$('.mobile-nav-js').hasClass('state-closed')) {
-	// 		setTimeout(function() {
-	// 			$('.mobile-nav-js').addClass('state-closed');
-	// 			$('body').removeClass('noscroll');
-	// 		}, 1000);
-	// 	}
-	// });
+	$('.nav-link').on('click', function() {
+		if (!$('.mobile-nav-js').hasClass('state-closed')) {
+			setTimeout(function() {
+				$('.mobile-nav-js').addClass('state-closed');
+				$('body').removeClass('noscroll');
+			}, 1000);
+		}
+	});
+
+	// ----- Generate random offset for photos -----
+	// var middle = $('.middle');
+	// console.log(middle);
+	// for (var i = 0; i < middle.length; i++) {
+	// 	var offset = randomNumber();
+	// 	var offsetDeg = 'rotate(' + offset + 'deg)';
+	// 	console.log('rotate = ' + offsetDeg);
+	// 	middle[i].css('opacity', '0');
+	// }
+
+	// function randomNumber() {
+	// 	return Math.floor(Math.random() * 5) + 1;
+	// }
 
 	$('.single-item').slick({
 		autoplay: true,
