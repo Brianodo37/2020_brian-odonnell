@@ -36,7 +36,7 @@
 						<li><a href="/about" id="about" class="nav-link underline internal-link">About</a></li>
 						<li><a href="/work" id="work" class="nav-link underline internal-link">Work</a></li>
 						<li><a href="/photography" id="photography" class="nav-link underline internal-link">Photography</a></li>
-						<li><a href="" class="nav-link underline open-form-js">Contact</a></li>
+						<li><span class="nav-link underline open-form-js">Contact</span></li>
 					</ul>
 				</div>
 				<div class="nav__mobile-icon open-nav-js">
@@ -86,7 +86,7 @@
 				<li><a href="/about" id="about" class="nav-link internal-link">About</a></li>
 				<li><a href="/work" id="work" class="nav-link internal-link">Work</a></li>
 				<li><a href="/photography" id="photography" class="nav-link internal-link">Photography</a></li>
-				<li><a href="" class="nav-link open-form-js">Contact</a></li>
+				<li><span class="nav-link open-form-js">Contact</span></li>
 			</ul>
 
 			<div class="mobile-nav__social">

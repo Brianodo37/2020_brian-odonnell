@@ -175,14 +175,14 @@ import AOS from "./lib/aos.js";
 		}
 	});
 
-	$('.nav-link').on('click', function() {
-		if (!$('.mobile-nav-js').hasClass('state-closed')) {
-			setTimeout(function() {
-				$('.mobile-nav-js').addClass('state-closed');
-				$('body').removeClass('noscroll');
-			}, 1000);
-		}
-	});
+	// $('.nav-link').on('click', function() {
+	// 	if (!$('.mobile-nav-js').hasClass('state-closed')) {
+	// 		setTimeout(function() {
+	// 			$('.mobile-nav-js').addClass('state-closed');
+	// 			$('body').removeClass('noscroll');
+	// 		}, 1000);
+	// 	}
+	// });
 
 	// ----- Generate random offset for photos -----
 	// var middle = $('.middle');
