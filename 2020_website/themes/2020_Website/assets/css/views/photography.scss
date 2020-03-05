@@ -39,29 +39,42 @@
             &:nth-child(3n+1) {
                 padding: 0 15px 0 0;
             }
-    
+
             &:nth-child(3n+2) {
                 padding: 0 7.5px;
             }
-    
+
             &:nth-child(3n+3) {
                 padding: 0 0 0 15px;
             }
-        }
+		}
+
+		a {
+			h3 {
+				color: #252627;
+
+				&:hover,
+				&:active,
+				&:visited {
+					color: #252627;
+				}
+			}
+		}
     }
-            
+
     &__image {
-        position: relative;
+		position: relative;
+
+		&:first-child {
+			-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
+			-moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
+			box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
+		}
 
         img {
             max-width: 100%;
 
-            &:nth-child(1) {
-                transform: rotate(3deg);
-            }
-
             &:nth-child(2) {
-                transform: rotate(-3deg);
                 position: absolute;
                 top: 0;
                 left: 0;

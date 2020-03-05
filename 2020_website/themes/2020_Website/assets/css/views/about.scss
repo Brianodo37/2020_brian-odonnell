@@ -29,6 +29,8 @@
 
 	&__summary {
 		padding-left: 30px;
+		display: flex;
+		flex-wrap: wrap;
 		@include make-col-ready();
 		@include make-col(12);
 
@@ -52,6 +54,69 @@
 				margin-right: 15px;
 				margin-bottom: -5px;
 				color: #BB0A21;
+			}
+		}
+	}
+}
+
+.job-history {
+	margin-top: 120px;
+
+	.job {
+		display: flex;
+		justify-content: stretch;
+		position: relative;
+		@include make-col-ready();
+		@include make-col(12);
+
+		&:nth-child(odd) {
+			.job {
+				&__container {
+					border-right: 2px solid black;
+				}
+
+				&__spacer {
+					border-left: 2px solid black;
+				}
+			}
+		}
+
+		&:nth-child(even) {
+			flex-direction: row-reverse;
+
+			.job {
+				&__container {
+					border-left: 2px solid black;
+				}
+
+				&__spacer {
+					border-right: 2px solid black;
+				}
+
+				&__details {
+					margin: 0 25% 0 60px;
+				}
+			}
+		}
+
+		&__container {
+			width: 50%;
+		}
+
+		&__spacer {
+			width: 50%;
+		}
+
+		&__details {
+			background-color: lightgrey;
+			height: 100%;
+			margin: 0 60px 0 25%;
+			padding: 30px;
+
+			p {
+				&:last-child {
+					margin: 0;
+				}
 			}
 		}
 	}

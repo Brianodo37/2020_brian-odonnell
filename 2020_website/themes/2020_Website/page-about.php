@@ -45,6 +45,32 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="row job-history">
+					<div class="job">
+						<div class="job__container">
+							<div class="job__details">
+								<h4>Front-End Developer</h4>
+								<p>August 2016 - March 2020</p>
+								<p>Hanson Inc.</p>
+							</div>
+							<div class="job__marker"></div>
+						</div>
+						<div class="job__spacer"></div>
+					</div>
+
+					<div class="job">
+						<div class="job__container">
+							<div class="job__details">
+								<h4>Front-End Developer</h4>
+								<p>August 2016 - March 2020</p>
+								<p>Hanson Inc.</p>
+							</div>
+						</div>
+						<div class="job__spacer"></div>
+						<div class="job__marker"></div>
+					</div>
+				<div>
 			</div>
 		</div>
 	</div>

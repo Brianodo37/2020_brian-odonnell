@@ -9,6 +9,7 @@
 							<img src="/wp-content/themes/2020_Website/assets/images/logos/logo-light.svg">
 						</a>
 						<p>&copy; Copyright <?php echo date('Y'); ?></p>
+						<p class="disclaimer">This website is always under construction. If you encounter any bugs or errors please reach out via the contact form and let me know. I am always looking for ways to improve.</p>
 					</div>
 					<div class="footer__social" data-aos="fade-up">
 						<div class="social">
