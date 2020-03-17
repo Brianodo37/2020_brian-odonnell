@@ -24,55 +24,105 @@
 						<img src="/wp-content/themes/2020_Website/assets/images/bio.jpg" data-aos="fade-up">
 					</div>
 					<div class="bio__summary">
-						<p data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis neque volutpat, accumsan magna ac, commodo metus. Suspendisse potenti. Fusce posuere dolor sed dolor ultrices egestas. Proin non dui sit amet neque ultrices pellentesque vitae vel odio. Nullam sem nibh, consequat ut imperdiet in, blandit id magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas viverra aliquet diam, et aliquam leo condimentum nec.</p>
+						<div data-aos="fade-up"><?php the_field('bio'); ?></div>
 						<div class="bio__stats">
-							<div data-aos="fade-up" data-aos-delay="100" class="stat">
-								<i class="fas fa-globe-americas"></i>
-								<h3>Toledo, OH</h3>
-							</div>
-							<div data-aos="fade-up" data-aos-delay="200" class="stat">
-								<i class="fas fa-building"></i>
-								<h3><a href="https://www.hansoninc.com" target="_blank" class="subtle underline">Hanson Inc.</a></h3>
-							</div>
-							<div data-aos="fade-up" data-aos-delay="300" class="stat">
-								<i class="fas fa-list"></i>
-								<h3>3+ years Experience</h3>
-							</div>
-							<div data-aos="fade-up" data-aos-delay="400" class="stat">
-								<i class="fas fa-trophy"></i>
-								<h3>1 Fantasy Football Championship</h3>
-							</div>
+							<?php $rows = get_field('fun_facts');
+							if($rows) {
+								foreach($rows as $row) { ?>
+									<div data-aos="fade-up" data-aos-delay="100" class="stat">
+										<i class="fas fa-<?php echo $row['fa_icon'] ?>"></i>
+										<h4><?php echo $row['fact'] ?></h4>
+									</div>
+								<?php }
+							} ?>
 						</div>
 					</div>
 				</div>
 
 				<div class="row job-history">
-					<div class="job">
-						<div class="job__container">
-							<div class="job__details">
-								<h4>Front-End Developer</h4>
-								<p>August 2016 - March 2020</p>
-								<p>Hanson Inc.</p>
-							</div>
-							<div class="job__marker"></div>
-						</div>
-						<div class="job__spacer"></div>
-					</div>
+					<?php
+						$args = array(
+							'post_type' => array('jobs'),
+							'post_status' => array('publish'),
+							'nopaging' => true,
+							'meta_key' => 'sort_order',
+							'order' => 'ASC',
+							'orderby' => 'meta_value'
+						);
+						$jobs = new WP_Query($args);
+					?>
 
-					<div class="job">
-						<div class="job__container">
-							<div class="job__details">
-								<h4>Front-End Developer</h4>
-								<p>August 2016 - March 2020</p>
-								<p>Hanson Inc.</p>
+					<?php if ($jobs->have_posts()) {
+						while ($jobs->have_posts()) {
+							$jobs->the_post(); ?>
+							<div class="job" data-toggle="modal" data-target="#exampleModalLong">
+								<div class="job__container">
+									<div class="job__details" data-aos="fade-up">
+										<h4><?php the_field('title'); ?></h4>
+										<p><?php the_field('start_date'); ?> - <?php the_field('end_date'); ?></p>
+										<p><?php the_field('company'); ?></p>
+									</div>
+									<div class="job__marker"></div>
+								</div>
+								<div class="job__spacer"></div>
 							</div>
-						</div>
-						<div class="job__spacer"></div>
-						<div class="job__marker"></div>
-					</div>
-				<div>
+						<?php }
+					} ?>
+					<?php wp_reset_query(); ?>
+				</div>
+
+				<div class="row skills">
+					<?php $rows = get_field('skills');
+					if($rows) {
+						foreach($rows as $row) { ?>
+							<div class="skill" data-aos="fade-up">
+								<i class="fas fa-<?php echo $row['fa_icon'] ?>"></i>
+								<h4><?php echo $row['title'] ?></h4>
+								<p><?php echo $row['snippet'] ?></p>
+							</div>
+						<?php }
+					} ?>
+				</div>
 			</div>
 		</div>
+
+		<?php
+			$args = array(
+				'post_type' => array('jobs'),
+				'post_status' => array('publish'),
+				'nopaging' => true,
+				'meta_key' => 'sort_order',
+				'order' => 'ASC',
+				'orderby' => 'meta_value'
+			);
+			$jobs = new WP_Query($args);
+		?>
+
+		<?php if ($jobs->have_posts()) {
+			while ($jobs->have_posts()) {
+				$jobs->the_post(); ?>
+
+				<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle"><?php the_field('title'); ?></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<?php the_field('description'); ?>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						</div>
+						</div>
+					</div>
+				</div>
+
+				<?php }
+			} ?>
+		<?php wp_reset_query(); ?>
 	</div>
 </main>
 

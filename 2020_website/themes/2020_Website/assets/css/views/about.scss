@@ -52,8 +52,12 @@
 			i {
 				font-size: 30px;
 				margin-right: 15px;
-				margin-bottom: -5px;
+				margin-top: -5px;
 				color: #BB0A21;
+			}
+
+			h4 {
+				margin: 0;
 			}
 		}
 	}
@@ -62,6 +66,7 @@
 .job-history {
 	margin-top: 120px;
 
+
 	.job {
 		display: flex;
 		justify-content: stretch;
@@ -69,14 +74,47 @@
 		@include make-col-ready();
 		@include make-col(12);
 
-		&:nth-child(odd) {
+		&:last-child {
 			.job {
 				&__container {
-					border-right: 2px solid black;
+					padding-bottom: 0;
+				}
+
+				&__marker {
+					margin-top: 0;
+				}
+			}
+		}
+
+		&:nth-child(odd) {
+			flex-direction: row-reverse;
+
+			@include media-breakpoint-up(md) {
+				flex-direction: row;
+			}
+
+			.job {
+				&__container {
+					border-left: 4px solid #252627;
+
+					@include media-breakpoint-up(md) {
+						border-right: 2px solid #252627;
+						border-left: 0px;
+					}
 				}
 
 				&__spacer {
-					border-left: 2px solid black;
+					@include media-breakpoint-up(md) {
+						border-left: 2px solid #252627;
+					}
+				}
+
+				&__marker {
+					@include media-breakpoint-up(md) {
+						border-right: 10px solid #252627;
+						border-left: 0px solid transparent;
+						margin: 0 0 0 -5px;
+					}
 				}
 			}
 		}
@@ -86,38 +124,106 @@
 
 			.job {
 				&__container {
-					border-left: 2px solid black;
+					border-left: 4px solid #252627;
+
+					@include media-breakpoint-up(md) {
+						border-left: 2px solid #252627;
+					}
 				}
 
 				&__spacer {
-					border-right: 2px solid black;
+					@include media-breakpoint-up(md) {
+						border-right: 2px solid #252627;
+					}
 				}
 
 				&__details {
-					margin: 0 25% 0 60px;
+					margin: 0 0 0 30px;
+
+					@include media-breakpoint-up(lg) {
+						margin: 0 25% 0 60px;
+					}
 				}
 			}
 		}
 
 		&__container {
-			width: 50%;
+			width: 100%;
+			padding-bottom: 30px;
+
+			@include media-breakpoint-up(md) {
+				width: 50%;
+				padding-bottom: 0;
+			}
 		}
 
 		&__spacer {
-			width: 50%;
+			display: none;
+
+			@include media-breakpoint-up(md) {
+				display: initial;
+				width: 50%;
+			}
 		}
 
 		&__details {
 			background-color: lightgrey;
 			height: 100%;
-			margin: 0 60px 0 25%;
+			margin: 0 0 0 30px;
 			padding: 30px;
+
+			@include media-breakpoint-up(md) {
+				margin: 0 30px 0 0;
+			}
+
+			@include media-breakpoint-up(lg) {
+				margin: 0 60px 0 25%;
+			}
 
 			p {
 				&:last-child {
 					margin: 0;
 				}
 			}
+		}
+
+		&__marker {
+			position: absolute;
+			left: 0%;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 0;
+			height: 0;
+			border-top: 7.5px solid transparent;
+			border-bottom: 7.5px solid transparent;
+			border-left: 10px solid #252627;
+			margin: -15px 0 0 17px;
+
+			@include media-breakpoint-up(md) {
+				left: 50%;
+				top: 50%;
+				transform: translateX(-50%) translateY(-50%);
+				margin: 0 0 0 5px;
+			}
+		}
+	}
+}
+
+.skills {
+	margin-top: 120px;
+
+	.skill {
+		width: 50%;
+		text-align: center;
+		padding: 15px;
+
+		@include media-breakpoint-up(md) {
+			width: 25%;
+		}
+
+		i {
+			font-size: 48px;
+			margin: 0 0 15px 0;
 		}
 	}
 }

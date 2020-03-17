@@ -1,7 +1,7 @@
 <?php
 
 $theme_version = '1.0.0';
- 
+
 /**
  * INCLUDES
  */
@@ -14,7 +14,7 @@ $widgets_setup = get_template_directory() . '/inc/widgets.php';
 if ( is_readable( $widgets_setup ) ) {
 	require_once $widgets_setup;
 }
- 
+
 $menu_setup = get_template_directory() . '/inc/menus.php';
 if ( is_readable( $menu_setup ) ) {
 	require_once $menu_setup;
@@ -44,9 +44,9 @@ function hanson_theme_scripts_loader() {
 	global $theme_version;
 
 	// 1. Styles
-	wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css', false, $theme_version, 'all' ); 
-	wp_enqueue_style( 'slickcss', get_template_directory_uri() . '/assets/css/lib/slick.css', false, $theme_version, 'all' ); 
-	wp_enqueue_style( 'slicktheme', get_template_directory_uri() . '/assets/css/lib/slick-theme.css', false, $theme_version, 'all' ); 
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css', false, $theme_version, 'all' );
+	wp_enqueue_style( 'slickcss', get_template_directory_uri() . '/assets/css/lib/slick.css', false, $theme_version, 'all' );
+	wp_enqueue_style( 'slicktheme', get_template_directory_uri() . '/assets/css/lib/slick-theme.css', false, $theme_version, 'all' );
 	wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/css/dist/main.min.css', false, $theme_version, 'all' ); // main.scss: Compiled Framework source + custom styles
 
 	// 2. Scripts
@@ -73,7 +73,7 @@ if ( ! function_exists( 'hanson_theme_content_nav' ) ) :
 	 *
 	 */
 	function hanson_theme_content_nav( $nav_id ) {
-		global $wp_query; 
+		global $wp_query;
 
 		if ( $wp_query->max_num_pages > 1 ) : ?>
 			<div id="<?php echo $nav_id; ?>" class="d-flex mb-4 justify-content-between">
@@ -84,7 +84,7 @@ if ( ! function_exists( 'hanson_theme_content_nav' ) ) :
 		else :
 			echo '<div class="clearfix"></div>';
 		endif;
-	} 
+	}
 endif; // content navigation
 //TODO: Not sure if we want to keep this or move it
 //used in archive loop to go to older pages
@@ -118,6 +118,20 @@ function create_posttype() {
 			'supports' => array('title', 'editor')
 		)
 	);
+
+	register_post_type( 'jobs',
+	array(
+		'labels' => array(
+			'name' => __('Jobs'),
+			'singular_name' => __('Jobs')
+		),
+		'public' => true,
+		'has_archive' => false,
+		'rewrite' => array('slug' => 'jobs'),
+		'show_in_rest' => true,
+		'supports' => array('title', 'editor')
+	)
+);
 }
 // Hooking up our function to theme setup
 add_action( 'init', 'create_posttype' );
