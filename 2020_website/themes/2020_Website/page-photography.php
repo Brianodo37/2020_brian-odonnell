@@ -23,7 +23,8 @@
 							'post_status' => array('publish'),
 							'nopaging' => true,
 							'order' => 'DESC',
-							'orderby' => 'date'
+							'meta_key' => 'date',
+							'orderby' => 'meta_value'
 						);
 						$photography = new WP_Query($args);
 					?>

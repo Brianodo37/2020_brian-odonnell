@@ -200,6 +200,7 @@ import AOS from "./lib/aos.js";
 
 	$('.single-item').slick({
 		autoplay: true,
+		pauseOnHover: true
 	});
 
 }(jQuery));

@@ -11,7 +11,7 @@
 						<h1><?php the_field('title'); ?></h1>
 					</div>
 
-					<div class="showcase__hero">
+					<div class="showcase__hero" data-aos="fade-up">
 						<?php
 							$rows = get_field('images');
 							if($rows) {
@@ -27,14 +27,16 @@
 
 				<div class="row">
 					<div class="showcase__content">
-						<div class="showcase__body">
+						<div class="showcase__body" data-aos="fade-up">
 							<?php the_field('description'); ?>
 						</div>
 
-						<div class="showcase__sidebar">
+						<div class="showcase__sidebar" data-aos="fade-up">
 							<ul>
 								<li><span class="sidebar__label">Date:</span> <span class="sidebar__detail"><?php the_field('date'); ?></span></li>
-								<li><span class="sidebar__label">Time of Day:</span> <span class="sidebar__detail"><?php the_field('time_of_day'); ?></span></li>
+								<?php if (get_field('time_of_day')) { ?>
+									<li><span class="sidebar__label">Time of Day:</span> <span class="sidebar__detail"><?php the_field('time_of_day'); ?></span></li>
+								<?php } ?>
 								<li><span class="sidebar__label">Location:</span> <span class="sidebar__detail"><?php the_field('location'); ?></span></li>
 								<li><span class="sidebar__label">Camera:</span> <span class="sidebar__detail"><?php the_field('camera'); ?></span></li>
 								<li><span class="sidebar__label">Lenses:</span> <span class="sidebar__detail"><?php the_field('lenses'); ?></span></li>
