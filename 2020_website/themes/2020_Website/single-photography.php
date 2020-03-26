@@ -34,10 +34,10 @@
 						<div class="showcase__sidebar" data-aos="fade-up">
 							<ul>
 								<li><span class="sidebar__label">Date:</span> <span class="sidebar__detail"><?php the_field('date'); ?></span></li>
+								<li><span class="sidebar__label">Location:</span> <span class="sidebar__detail"><?php the_field('location'); ?></span></li>
 								<?php if (get_field('time_of_day')) { ?>
 									<li><span class="sidebar__label">Time of Day:</span> <span class="sidebar__detail"><?php the_field('time_of_day'); ?></span></li>
 								<?php } ?>
-								<li><span class="sidebar__label">Location:</span> <span class="sidebar__detail"><?php the_field('location'); ?></span></li>
 								<li><span class="sidebar__label">Camera:</span> <span class="sidebar__detail"><?php the_field('camera'); ?></span></li>
 								<li><span class="sidebar__label">Lenses:</span> <span class="sidebar__detail"><?php the_field('lenses'); ?></span></li>
 								<?php if (get_field('details')) {
