@@ -37,9 +37,19 @@
 								<div class="photo__item">
 									<a href="<?php echo get_permalink(); ?>" alt="" class="internal-link">
 									<div class="photo__image">
-										<img src="<?php the_field('thumbnail_bottom'); ?>" style="transform: rotate(-<?php echo (rand(1, 5)); ?>deg);">
-										<img src="<?php the_field('thumbnail_middle'); ?>" style="transform: rotate(-<?php echo (rand(1, 5)); ?>deg);">
-										<img src="<?php the_field('thumbnail_top'); ?>">
+										<?php
+											$image1 = get_field('thumbnail_top');
+											$top = str_replace('.jpg', '-500x333.jpg', $image1);
+
+											$image2 = get_field('thumbnail_middle');
+											$middle = str_replace('.jpg', '-500x333.jpg', $image2);
+
+											$image3 = get_field('thumbnail_bottom');
+											$bottom = str_replace('.jpg', '-500x333.jpg', $image3);
+										?>
+										<img src="<?php echo $bottom ?>" style="transform: rotate(-<?php echo (rand(1, 5)); ?>deg);">
+										<img src="<?php echo $middle ?>" style="transform: rotate(-<?php echo (rand(1, 5)); ?>deg);">
+										<img src="<?php echo $top ?>">
 									</div>
 									<div class="photo__description">
 										<h3><?php the_field('title'); ?></h3>
