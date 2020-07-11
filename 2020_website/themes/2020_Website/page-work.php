@@ -40,8 +40,8 @@
 											<img src="<?php the_field('thumbnail'); ?>">
 										</div>
 										<div class="work__description">
-											<img src="<?php the_field('client_logo'); ?>" alt="<?php the_field('client'); ?>" class="feature__logo">
 											<h3 class="feature__title"><?php the_field('project_title'); ?></h3>
+											<h6><?php the_field('client'); ?></h6>
 										</div>
 									</a>
 								</div>

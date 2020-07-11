@@ -1,5 +1,5 @@
 // import "./transitions.js";
-import "./lib/particles.min.js";
+// import "./lib/particles.min.js";
 import AOS from "./lib/aos.js";
 
 (function ($) {
@@ -106,10 +106,10 @@ import AOS from "./lib/aos.js";
 	$(pageID).addClass('active');
 
 	// ----- Initialize Particles JS -----
-	if ($('body').hasClass('home')) {
-		particlesJS.load('particles-js', '/wp-content/themes/2020_Website/assets/json/particles-config.json', function() {
-		});
-	}
+	// if ($('body').hasClass('home')) {
+	// 	particlesJS.load('particles-js', '/wp-content/themes/2020_Website/assets/json/particles-config.json', function() {
+	// 	});
+	// }
 
 	// initParticles();
 

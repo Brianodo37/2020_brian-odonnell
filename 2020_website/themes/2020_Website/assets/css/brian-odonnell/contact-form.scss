@@ -125,6 +125,23 @@
 				margin-bottom: 0;
 			}
 
+			&--select {
+				position: relative;
+
+				&:after {
+					width: 0;
+					height: 0;
+					border-left: 5px solid transparent;
+					border-right: 5px solid transparent;
+					content: ' ';
+					border-top: 5px solid #495057;
+					position: absolute;
+					right: 15px;
+					top: 31px;
+					pointer-events: none;
+				}
+			}
+
 			.wpcf7-form-control-wrap {
 				width: 100%;
 
@@ -140,6 +157,27 @@
 
 					&:placeholder {
 						color: #ccc;
+					}
+
+					&.wpcf7-not-valid {
+						border-color: #bb0a21;
+
+						&:placeholder {
+							color: #bb0a21;
+						}
+					}
+				}
+
+				select {
+					height: 62px;
+					-webkit-appearance: none;
+					color: #495057 !important;
+					cursor: pointer;
+
+					&:focus {
+						outline: none;
+						box-shadow: none;
+						border-color: #ced4da;
 					}
 
 					&.wpcf7-not-valid {
@@ -184,6 +222,8 @@
 	}
 
 	.submit {
+		margin-top: 15px;
+
 		@include media-breakpoint-up(md) {
 			display: flex;
 			transform: translateX(5px);

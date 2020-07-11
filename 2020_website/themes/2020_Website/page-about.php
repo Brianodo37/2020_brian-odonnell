@@ -14,22 +14,28 @@
 			<div class="container">
 				<div class="row">
 					<div data-aos="fade-up" class="page-intro">
-						<h2>About Me</h2>
+						<h1>About Me</h1>
 					</div>
 				</div>
 
 				<div class="row bio">
-					<div class="bio__photo">
-						<span data-aos="fade-up" data-aos-delay="50" class="bio__border" ></span>
-						<img src="/wp-content/themes/2020_Website/assets/images/bio.jpg" data-aos="fade-up">
-					</div>
 					<div class="bio__summary">
-						<div data-aos="fade-up"><?php the_field('bio'); ?></div>
-						<div class="bio__stats">
+						<div data-aos="fade-up">
+							<img src="<?php the_field('bio_photo'); ?>" class="bio__image">
+							<?php the_field('bio'); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container--gray" data-aos="fade-up">
+				<div class="container">
+					<div class="row">
+						<div class="stats">
 							<?php $rows = get_field('fun_facts');
 							if($rows) {
 								foreach($rows as $row) { ?>
-									<div data-aos="fade-up" data-aos-delay="100" class="stat">
+									<div class="stats__item">
 										<i class="fas fa-<?php echo $row['fa_icon'] ?>"></i>
 										<h4><?php echo $row['fact'] ?></h4>
 									</div>
@@ -38,7 +44,9 @@
 						</div>
 					</div>
 				</div>
+			</div>
 
+			<div class="container">
 				<div class="row job-history">
 					<?php
 						$args = array(
@@ -55,12 +63,16 @@
 					<?php if ($jobs->have_posts()) {
 						while ($jobs->have_posts()) {
 							$jobs->the_post(); ?>
-							<div class="job" data-toggle="modal" data-target="#exampleModalLong">
+							<div class="job" data-aos="fade-up">
 								<div class="job__container">
-									<div class="job__details" data-aos="fade-up">
-										<h4><?php the_field('title'); ?></h4>
-										<p><?php the_field('start_date'); ?> - <?php the_field('end_date'); ?></p>
-										<p><?php the_field('company'); ?></p>
+									<div class="job__details" data-toggle="modal" data-target="#<?php the_field('identifier'); ?>">
+										<h6><?php the_field('start_date'); ?> - <?php the_field('end_date'); ?></h6>
+										<h3><?php the_field('title'); ?></h3>
+										<h5><?php the_field('company'); ?></h5>
+										<div class="icon">
+											<span class="icon__copy">More Info</span>
+											<i class="fas fa-arrow-right"></i>
+										</div>
 									</div>
 									<div class="job__marker"></div>
 								</div>
@@ -70,6 +82,15 @@
 					} ?>
 					<?php wp_reset_query(); ?>
 				</div>
+
+				<?php if(get_field('resume')) { ?>
+					<div class="row resume">
+						<div data-aos="fade-up" class="button button--blue">
+							<span class="button__background"></span>
+							<a href="<?php the_field('resume'); ?>" target="_blank" class="button__border">Resume</a>
+						</div>
+					</div>
+				<?php } ?>
 
 				<div class="row skills">
 					<?php $rows = get_field('skills');
@@ -102,20 +123,32 @@
 			while ($jobs->have_posts()) {
 				$jobs->the_post(); ?>
 
-				<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+				<div class="modal fade" id="<?php the_field('identifier'); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLongTitle"><?php the_field('title'); ?></h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<?php the_field('description'); ?>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						</div>
+							<div class="modal-header">
+								<div class="modal__header">
+									<h3><?php the_field('title'); ?></h3>
+									<h5><?php the_field('company'); ?></h5>
+								</div>
+								<div class="modal__close" data-dismiss="modal" aria-label="Close">
+									<span class="circle"></span>
+									<span class="line-1"></span>
+									<span class="line-2"></span>
+								</div>
+							</div>
+							<div class="modal-body">
+								<p class="modal-body__label">Details:</p>
+								<?php the_field('description'); ?>
+								<p class="modal-body__label">Primary Tasks:</p>
+								<ul>
+									<?php if (have_rows('tasks')):
+										while (have_rows('tasks')): the_row(); ?>
+											<li><?php the_sub_field('task_item'); ?></li>
+										<?php endwhile;
+									endif; ?>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>

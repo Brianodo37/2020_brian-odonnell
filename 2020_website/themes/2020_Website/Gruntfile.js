@@ -3,12 +3,12 @@ const postcss = require('postcss');
 
 module.exports = function (grunt) {
 	'use strict';
-	
+
 	// load all Grunt tasks matching the `grunt-*` pattern
 	require('load-grunt-tasks')(grunt);
 
 	grunt.initConfig({
-		
+
 		pkg: grunt.file.readJSON('package.json'),
 
 		// watch for changes and trigger tasks
@@ -61,7 +61,7 @@ module.exports = function (grunt) {
 				src: 'css/dist/*.min.css'
 			}
 		},
-		
+
 		// Image optimization
 		imagemin: {
 			dist: {
@@ -78,7 +78,7 @@ module.exports = function (grunt) {
 				}]
 			}
 		},
-		
+
 		// Javascript linting with jshint
 		// jshint: {
 		// 	all: [
@@ -87,7 +87,7 @@ module.exports = function (grunt) {
 		// 		'!js/*.min.js'
 		// 	]
 		// },
-		
+
 		// Uglify to concat, minify, and make Source maps
 		// uglify: {
 		// 	main: {
@@ -109,7 +109,7 @@ module.exports = function (grunt) {
 
 	// Set base directory to "/assets": https://gruntjs.com/api/grunt.file#grunt.file.setbase
 	grunt.file.setBase('assets');
-	
+
 	// Register the tasks
 	grunt.registerTask('default', ['watch', 'sass', 'postcss', 'imagemin', 'uglify']);
 

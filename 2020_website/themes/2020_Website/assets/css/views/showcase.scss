@@ -1,6 +1,27 @@
 .showcase {
 	&__container {
-		padding: 60px 0 0 0;
+		padding: 30px 0 0 0;
+	}
+
+	&__breadcrumbs {
+		margin: 0 0 30px 0;
+		@include make-col-ready();
+		@include make-col(12);
+
+		p {
+			color: #bbb;
+			font-size: 14px;
+
+			a {
+				color: #bbb;
+				font-size: 14px;
+
+				&:hover {
+					text-decoration: underline;
+					color: initial;
+				}
+			}
+		}
 	}
 
 	&__intro {
@@ -14,8 +35,15 @@
 	&__hero {
 		@include make-col-ready();
 		@include make-col(12);
+
 		img {
 			width: 100%;
+		}
+
+		&--borders {
+			img {
+				border: 1px solid #ccc;
+			}
 		}
 	}
 

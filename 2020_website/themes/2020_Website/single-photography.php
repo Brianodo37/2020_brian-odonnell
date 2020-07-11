@@ -7,6 +7,10 @@
 		<div class="showcase__container">
 			<div class="container">
 				<div class="row">
+					<div class="showcase__breadcrumbs" data-aos="fade-up">
+						<p>/  <a href="/photography">Photography</a>  /  <?php the_field('title'); ?></p>
+					</div>
+
 					<div class="showcase__intro" data-aos="fade-up">
 						<h1><?php the_field('title'); ?></h1>
 					</div>
@@ -17,9 +21,9 @@
 							if($rows) {
 								echo '<div class="single-item">';
 								foreach($rows as $row) {
-									if( $row['in_slider']) {
+									// if( $row['in_slider']) {
 										echo '<img src="' . $row['image'] . '">';
-									}
+									// }
 								}
 								echo '</div>';
 							}
@@ -58,70 +62,24 @@
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="showcase__gallery" data-toggle=”modal” data-target=”#exampleMo>
+				<!-- <div class="row">
+					<div class="showcase__gallery"> -->
 						<?php
-							$rows = get_field('images');
-							if($rows) {
-								$count = 0;
-								foreach($rows as $row) {
-									$image = $row['image'];
-									$url = str_replace('.jpg', '-500x333.jpg', $image);
+							// $rows = get_field('images');
+							// if($rows) {
+							// 	$count = 0;
+							// 	foreach($rows as $row) {
+							// 		$image = $row['image'];
+							// 		$url = str_replace('.jpg', '-500x333.jpg', $image);
 
-									echo '<div class="gallery__image">';
-										echo '<img src="' . $url . '" data-aos="fade-up" data-target=”#carouselExample” data-slide-to="' . $count . '">';
-									echo '</div>';
-
-									$count++;
-								}
-							}
+							// 		echo '<div class="gallery__image">';
+							// 			echo '<img src="' . $url . '" data-aos="fade-up">';
+							// 		echo '</div>';
+							// 	}
+							// }
 						?>
-					</div>
-				</div>
-
-				<?php
-					$rows = get_field('images');
-					if($rows) {
-						$count = 0; ?>
-						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-									<div class="modal-body">
-										<div id="carouselExample" class="carousel slide" data-ride="carousel">
-          									<div class="carousel-inner">
-												<?php foreach($rows as $row) { ?>
-													<div class="carousel-item">
-														<img src="<?php echo $row['image']; ?>" class="d-block">
-														<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														</button> -->
-													</div>
-												<?php $count++;
-												} ?>
-											</div>
-											<a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-            									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            									<span class="sr-only">Previous</span>
-          									</a>
-          									<a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
-												<span class="carousel-control-next-icon" aria-hidden="true"></span>
-												<span class="sr-only">Next</span>
-          									</a>
-        								</div>
-      								</div>
-      								<div class="modal-footer">
-        								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      								</div>
-    							</div>
-  							</div>
-						</div>
-					<?php }
-				?>
+					<!-- </div>
+				</div> -->
 			</div>
 		</div>
 	</div>

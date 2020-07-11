@@ -23,23 +23,30 @@
 			}
 		}
 
-		&.slick-prev {				
+		&.slick-prev {
 			&:before{
 				content: "\e919";
 			}
 
 			@include media-breakpoint-down(sm) {
 				left: -14px;
-			}				
+			}
 		}
 	}
 
 	.slick-dots {
 		position: initial;
 		li {
+			button {
+				&:hover {
+					&:before {
+						opacity: 1;
+					}
+				}
+			}
 			button:before{
 				font-size: 54px;
-				opacity: 1;
+				opacity: .75;
 			}
 
 			&:not(.slick-active){
@@ -48,20 +55,20 @@
 					content: "\e926";
 					font-size: 14px;
 				}
-			} 
+			}
 		}
 		//hide dots when there is only one
 	    > li:only-child {
 	        display: none;
 	    }
-		
+
 	}
-	
+
 
 	&.single{
 		max-width: 100%;
 
-		@include media-breakpoint-up(md) {		
+		@include media-breakpoint-up(md) {
 			margin: 0 auto 30px auto;
 			max-width: 80%;
 		}
@@ -69,9 +76,9 @@
 		.slide {
 			padding:10px;
 			display: flex;
-			height: auto;		
+			height: auto;
 			justify-content: center;
-			
+
 			@include media-breakpoint-up(md) {
 				align-items: center;
 			}
@@ -85,7 +92,7 @@
 
 				@include media-breakpoint-up(md) {
 					flex-flow: row;
-				}				
+				}
 			}
 
 			&__image-wrapper {
@@ -110,7 +117,7 @@
 					height: 100%;
 					display: block;
 					background-position: center;
-				}	 
+				}
 			}
 
 			&__detail{
@@ -125,16 +132,16 @@
 			}
 
 			&:focus{outline:none;}
-		} 		 
+		}
 	}
-	
+
 	&.stacked {
 		.slide {
 			padding: 0 20px;
 			display: flex;
 			height: auto;
 			align-items: center;
-			justify-content: center; 
+			justify-content: center;
 
 			&__card {
 				height: 100%;
@@ -155,7 +162,7 @@
 					height: 100%;
 					display: block;
 				}
-	 
+
 			}
 
 			&__detail {

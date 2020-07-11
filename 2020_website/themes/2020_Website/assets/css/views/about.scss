@@ -1,31 +1,6 @@
 .bio {
 	margin-top: 60px;
-
-	&__photo {
-		position: relative;
-		margin-bottom: 15px;
-		@include make-col-ready();
-		@include make-col(12);
-
-		@include media-breakpoint-up(md) {
-			@include make-col(4);
-		}
-
-		img {
-			max-width: 100%;
-			z-index: 1;
-		}
-	}
-
-	&__border {
-		position: absolute;
-		width: calc(100% - 30px);
-		height: 100%;
-		top: 15px;
-		left: 32.5px;
-		border: 7.5px solid #BB0A21;
-		z-index: 2;
-	}
+	margin-bottom: 120px;
 
 	&__summary {
 		padding-left: 30px;
@@ -34,31 +9,68 @@
 		@include make-col-ready();
 		@include make-col(12);
 
-		@include media-breakpoint-up(md) {
-			@include make-col(8);
+		p {
+			&:last-child {
+				margin: 0;
+			}
 		}
 	}
 
-	&__stats {
-		display: flex;
-		flex-wrap: wrap;
+	&__image {
+		width: 100%;
+		float: left;
+		margin: 0 0 30px 0;
 
-		.stat {
+		@include media-breakpoint-up(sm) {
 			width: 50%;
-			display: flex;
-			justify-content: flex-start;
-			align-items: center;
+			margin: 0 15px 15px 0;
+		}
 
-			i {
-				font-size: 30px;
-				margin-right: 15px;
-				margin-top: -5px;
-				color: #BB0A21;
-			}
+		@include media-breakpoint-up(md) {
+			width: 40%;
+			margin: 0 30px 20px 0;
+		}
 
-			h4 {
-				margin: 0;
-			}
+		@include media-breakpoint-up(lg) {
+			width: 30%
+		}
+	}
+}
+
+.stats {
+	display: flex;
+	flex-wrap: wrap;
+	@include make-col-ready();
+	@include make-col(12);
+
+	&__item {
+		width: 50%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 30px;
+
+		&:nth-child(3),
+		&:nth-child(4) {
+			margin-bottom: 0;
+		}
+
+		@include media-breakpoint-up(lg) {
+			width: 25%;
+			margin-bottom: 0;
+		}
+
+		i {
+			font-size: 30px;
+			margin-right: 15px;
+			margin-top: -5px;
+			color: #BB0A21;
+		}
+
+		h4 {
+			margin: 0;
+			width: 170px;
 		}
 	}
 }
@@ -171,6 +183,8 @@
 			height: 100%;
 			margin: 0 0 0 30px;
 			padding: 30px;
+			transition: transform .2s ease;
+			position: relative;
 
 			@include media-breakpoint-up(md) {
 				margin: 0 30px 0 0;
@@ -180,9 +194,36 @@
 				margin: 0 60px 0 25%;
 			}
 
-			p {
-				&:last-child {
-					margin: 0;
+			h6 {
+				margin-bottom: 20px;
+			}
+
+			h3,h5 {
+				margin: 0;
+			}
+
+			&:hover {
+				@include media-breakpoint-up(md) {
+					cursor: pointer;
+					transform: scale(1.05);
+					transition: transform .2s ease;
+				}
+			}
+
+			.icon {
+				justify-content: flex-end;
+				display: flex;
+				align-items: center;
+				margin-top: 15px;
+
+				&__copy {
+					padding-right: 5px;
+					font-size: 14px;
+				}
+
+				i {
+					color: #bb0a21;
+					font-size: 15px;
 				}
 			}
 		}
@@ -209,21 +250,123 @@
 	}
 }
 
+.modal {
+	&-header {
+		border: 0;
+		padding: 30px;
+		position: relative;
+	}
+
+	&__close {
+		border: 3px solid #BB0A21;
+		border-radius: 30px;
+		width: 30px;
+		height: 30px;
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		overflow: visible;
+
+		.line-1 {
+			height: 3px;
+			width: 15px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%) rotate(45deg);
+			background-color: #BB0A21;
+			transition: background-color .2s ease;
+		}
+
+		.line-2 {
+			height: 3px;
+			width: 15px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%) rotate(-45deg);
+			background-color: #BB0A21;
+			transition: background-color .3s ease;
+		}
+
+		.circle {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			width: 0px;
+			height: 0px;
+			background-color: #BB0A21;
+			border-radius: 30px;
+			transition: all .5s ease;
+		}
+
+		&:hover {
+			cursor: pointer;
+
+			.line-1,
+			.line-2 {
+				background-color: white;
+				transition: background-color .2s ease;
+			}
+
+			.circle {
+				width: 30px;
+				height: 30px;
+				transition: all .3s ease;
+			}
+		}
+	}
+
+	&__header {
+		h3,h5 {
+			margin: 0;
+		}
+	}
+
+	&-body {
+		padding: 0 30px 30px 30px;
+
+		&__label {
+			font-weight: bold;
+		}
+	}
+}
+
+.resume {
+	display: flex;
+	justify-content: center;
+	margin-top: 60px;
+}
+
 .skills {
 	margin-top: 120px;
 
 	.skill {
-		width: 50%;
+		width: 100%;
 		text-align: center;
 		padding: 15px;
 
+		@include media-breakpoint-up(sm) {
+			width: 50%;
+		}
+
 		@include media-breakpoint-up(md) {
-			width: 25%;
+			width: 50%;
+		}
+
+		@include media-breakpoint-up(lg) {
+			width: 33.33%;
 		}
 
 		i {
 			font-size: 48px;
 			margin: 0 0 15px 0;
+			color: #bb0a21;
+		}
+
+		p {
+			margin: 0;
 		}
 	}
 }

@@ -34,7 +34,7 @@
 							<?php while ($photography->have_posts()) {
 								$photography->the_post(); ?>
 
-								<div class="photo__item">
+								<div class="photo__item" data-aos="fade-up">
 									<a href="<?php echo get_permalink(); ?>" alt="" class="internal-link">
 									<div class="photo__image">
 										<?php
@@ -47,9 +47,9 @@
 											$image3 = get_field('thumbnail_bottom');
 											$bottom = str_replace('.jpg', '-500x333.jpg', $image3);
 										?>
-										<img src="<?php echo $bottom ?>" style="transform: rotate(-<?php echo (rand(1, 5)); ?>deg);">
-										<img src="<?php echo $middle ?>" style="transform: rotate(-<?php echo (rand(1, 5)); ?>deg);">
-										<img src="<?php echo $top ?>">
+										<img src="<?php echo $bottom ?>" class="photo__bottom photo__bottom--<?php echo (rand(1, 5)); ?>">
+										<img src="<?php echo $middle ?>" class="photo__middle photo__middle--<?php echo (rand(1, 5)); ?>">
+										<img src="<?php echo $top ?>" class="photo__top">
 									</div>
 									<div class="photo__description">
 										<h3><?php the_field('title'); ?></h3>

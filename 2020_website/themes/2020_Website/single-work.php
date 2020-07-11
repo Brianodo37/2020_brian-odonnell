@@ -7,12 +7,16 @@
 		<div class="showcase__container">
 			<div class="container">
 				<div class="row">
+					<div class="showcase__breadcrumbs" data-aos="fade-up">
+						<p>/  <a href="/work">Work</a>  /  <?php the_field('client'); ?></p>
+					</div>
+
 					<div class="showcase__intro" data-aos="fade-up">
 						<h1><?php the_field('project_title'); ?></h1>
 						<h3><?php the_field('client'); ?></h3>
 					</div>
 
-					<div class="showcase__hero">
+					<div class="showcase__hero <?php if (get_field('image_borders') == 'yes') { ?> showcase__hero--borders <?php } ?>" data-aos="fade-up">
 						<?php
 							$rows = get_field('images');
 							if($rows) {
@@ -27,15 +31,17 @@
 				</div>
 
 				<div class="row">
-					<div class="showcase__content">
+					<div class="showcase__content" data-aos="fade-up">
 						<div class="showcase__body">
 							<?php the_field('project_description'); ?>
 						</div>
 
 						<div class="showcase__sidebar">
 							<ul>
-								<li><span class="sidebar__label">Date:</span> <span class="sidebar__detail"><?php the_field('date'); ?></span></li>
-								<li><span class="sidebar__label">Client:</span> <span class="sidebar__detail"><?php the_field('date'); ?></span></li>
+								<?php if (the_field('date')): ?>
+									<li><span class="sidebar__label">Date:</span> <span class="sidebar__detail"><?php the_field('date'); ?></span></li>
+								<?php endif; ?>
+								<li><span class="sidebar__label">Client:</span> <span class="sidebar__detail"><?php the_field('client'); ?></span></li>
 								<?php
 									$rows = get_field('details');
 									if($rows) {
