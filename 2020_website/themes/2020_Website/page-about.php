@@ -41,6 +41,10 @@
 									</div>
 								<?php }
 							} ?>
+							<div class="stats__item stats__item--book">
+								<i class="fas fa-book" aria-hidden="true"></i>
+								<h4><i class="fa fa-spinner spinner" aria-hidden="true"></i><span id="bookNumber" class="bookNumber">10</span> books read in <?php echo date("Y"); ?></h4>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -54,7 +58,7 @@
 							'post_status' => array('publish'),
 							'nopaging' => true,
 							'meta_key' => 'sort_order',
-							'order' => 'ASC',
+							'order' => 'DEC',
 							'orderby' => 'meta_value'
 						);
 						$jobs = new WP_Query($args);
@@ -87,7 +91,7 @@
 					<div class="row resume">
 						<div data-aos="fade-up" class="button button--blue">
 							<span class="button__background"></span>
-							<a href="<?php the_field('resume'); ?>" target="_blank" class="button__border">Resume</a>
+							<a href="<?php the_field('resume'); ?>" target="_blank" class="button__border">Full Resume</a>
 						</div>
 					</div>
 				<?php } ?>

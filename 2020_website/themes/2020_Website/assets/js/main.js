@@ -199,8 +199,72 @@ import AOS from "./lib/aos.js";
 	// }
 
 	$('.single-item').slick({
-		autoplay: true,
-		pauseOnHover: true
+		// autoplay: true,
+		pauseOnHover: true,
+		dots: true,
+		laxyload: 'ondemand',
+		autoplaySpeed: '5000',
+		speed: '500'
 	});
 
+	var apiUrl = 'https://www.goodreads.com/review/list/42381592-brian-o-donnell.xml?per_page=50&sort=date_read&shelf=read&key=Iwsr63XkubkuB5u8IuiSBQ&v=2';
+
+	// Handles CORS request (https -> http)
+	$.ajaxPrefilter(function(options) {
+		if (options.crossDomain && $.support.cors) {
+			options.url = 'https://cors-anywhere.herokuapp.com/' + apiUrl;
+		}
+	});
+
+	$.ajax ({
+		url: apiUrl,
+		type: 'GET',
+		crossDomain: true,
+		dataType: 'xml',
+		success: parseXml,
+		error: function() {
+			apiFailed();
+		}
+	});
+
+	function parseXml(xml) {
+		var booksThisYear = 1;
+		$(xml).find('review').each(function() {
+			var fullBookDateString = $(this)[0].children[10].textContent;
+			var bookYearString = fullBookDateString.slice(26);
+			var currentYearObject = new Date().getFullYear();
+			var currentYearString = currentYearObject.toString();
+
+			if (bookYearString == currentYearString) {
+				booksThisYear++;
+			}
+		});
+
+		countReplace(booksThisYear);
+	}
+
+	function countReplace(booksThisYear) {
+		$('#bookNumber')[0].innerHTML = booksThisYear.toString();
+
+		hideSpinner();
+	}
+
+	function apiFailed() {
+		$('#bookNumber')[0].innerHTML = 15;
+
+		hideSpinner();
+	}
+
+	function hideSpinner() {
+		$('.stats__item--book').addClass('js-numberAdded');
+
+		// Hide spinner after 2s
+		setTimeout(
+			function() {
+				$('.spinner').addClass('hidden');
+			}, 2000
+		);
+	}
+
 }(jQuery));
+

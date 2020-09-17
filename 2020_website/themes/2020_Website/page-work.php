@@ -24,8 +24,9 @@
 								'post_type' => array('work'),
 								'post_status' => array('publish'),
 								'nopaging' => true,
-								'order' => 'DESC',
-								'orderby' => 'date'
+								'meta_key' => 'date',
+								'orderby' => 'meta_value',
+								'order' => 'DESC'
 							);
 							$work = new WP_Query($args);
 						?>
@@ -34,18 +35,25 @@
 							while ($work->have_posts()) {
 								$work->the_post(); ?>
 
-								<div class="work__item">
+								<div class="work__item" data-aos="fade-up">
 									<a href="<?php echo get_permalink(); ?>" alt="<?php the_field('client'); ?>" class="internal-link">
 										<div class="work__image">
-											<img src="<?php the_field('thumbnail'); ?>">
+											<?php
+												$rows = get_field('images');
+												if($rows) {
+													foreach($rows as $row) {
+														echo '<img src="' . $row['image'] . '">';
+														break;
+													}
+												}
+											?>
 										</div>
 										<div class="work__description">
-											<h3 class="feature__title"><?php the_field('project_title'); ?></h3>
-											<h6><?php the_field('client'); ?></h6>
+											<h3 class="feature__title"><?php if (get_field('shortened_client')) { the_field('shortened_client'); } else { the_field('client'); } ?></h3>
+											<h6><?php the_field('project_title'); ?></h6>
 										</div>
 									</a>
 								</div>
-
 							<?php }
 						} ?>
 						<?php wp_reset_query(); ?>

@@ -71,6 +71,51 @@
 		h4 {
 			margin: 0;
 			width: 170px;
+			position: relative;
+		}
+
+		.spinner {
+			font-size: 24px;
+			color: #252627;
+			margin: 0;
+			animation: numberSpinner 1.5s linear infinite;
+			-webkit-animation: numberSpinner 1.5s linear infinite;
+			opacity: 1;
+			transition: opacity .4s ease;
+			position: absolute;
+			width: 32px;
+			left: 0;
+			display: flex;
+			justify-content: center;
+
+			@keyframes numberSpinner {
+				100% {
+					transform: rotate(360deg);
+					-webkit-transform: rotate(360deg);
+				}
+			}
+		}
+
+		.bookNumber {
+			opacity: 0;
+			transition: opacity .4s ease;
+			width: 32px;
+			display: block;
+			float: left;
+		}
+
+		&--book {
+			&.js-numberAdded {
+				.spinner {
+					opacity: 0;
+					transition: opacity .4s ease;
+				}
+
+				.bookNumber {
+					opacity: 1 !important;
+					transition: opacity .4s ease;
+				}
+			}
 		}
 	}
 }
@@ -329,6 +374,7 @@
 
 		&__label {
 			font-weight: bold;
+			margin: 0;
 		}
 	}
 }

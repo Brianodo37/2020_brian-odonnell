@@ -120,18 +120,79 @@ header {
 		transition: left .5s ease;
 	}
 
+	&__button-container {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 30px;
+		height: 45px;
+		align-items: center;
+	}
+
+	&__button {
+		width: 30px;
+		height:	30px;
+		position: relative;
+	}
+
 	&__close {
+		border: 3px solid white;
+		border-radius: 30px;
+		width: 30px;
+		height: 30px;
 		position: absolute;
-		top: 0px;
-		right: 0px;
+		top: 15px;
+		right: 15px;
+		overflow: visible;
+		top: 0;
+		left: 0;
 
-		.icon {
-			margin: 30px 15px 0 0;
-			font-size: 30px;
-			color: white;
+		.line-1 {
+			height: 3px;
+			width: 15px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%) rotate(45deg);
+			background-color: white;
+			transition: background-color .2s ease;
+		}
 
-			&:hover {
-				cursor: pointer;
+		.line-2 {
+			height: 3px;
+			width: 15px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%) rotate(-45deg);
+			background-color: white;
+			transition: background-color .3s ease;
+		}
+
+		.circle {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			width: 0px;
+			height: 0px;
+			background-color: white;
+			border-radius: 30px;
+			transition: all .5s ease;
+		}
+
+		&:hover {
+			cursor: pointer;
+
+			.line-1,
+			.line-2 {
+				background-color: #252627;
+				transition: background-color .2s ease;
+			}
+
+			.circle {
+				width: 30px;
+				height: 30px;
+				transition: all .3s ease;
 			}
 		}
 	}
@@ -160,6 +221,13 @@ header {
 				&:visited {
 					color: white;
 				}
+			}
+
+			span {
+				color: #fff;
+				font-size: 30px;
+				font-family: league spartan,Helvetica,Arial,sans-serif;
+				padding: 10px;
 			}
 		}
 	}

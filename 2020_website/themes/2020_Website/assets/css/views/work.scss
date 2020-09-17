@@ -19,7 +19,9 @@
     }
 
     &__item {
-        margin: 0 0 60px 0;
+		margin: 0 0 60px 0;
+		width: 100%;
+		overflow: hidden;
 
         @include media-breakpoint-up(md) {
             width: 50%;
@@ -53,24 +55,54 @@
     &__image {
 		overflow: hidden;
 		border: 1px solid #ccc;
+		background-color: #ccc;
+		width: 100%;
+		padding-bottom: 62.25%;
+		position: relative;
+		justify-content: center;
+		display: flex;
+
+		@include media-breakpoint-up(md) {
+			width: auto;
+			padding-bottom: 0;
+			height: 207px;
+		}
+
+		@include media-breakpoint-up(lg) {
+			height: 185.09px;
+		}
+
+		@include media-breakpoint-up(xl) {
+			height: 222.59px;
+		}
 
         img {
-			max-width: 100%;
-			transition: transform .2s ease;
+			position: absolute;
+			height: 100%;
+
+			@include media-breakpoint-up(md) {
+				max-width: 100%;
+				transition: transform .2s ease;
+
+				position: absolute;
+				height: auto;
+				width: auto;
+				height: 100%;
+			}
 		}
 
 		&:hover {
-			img {
-				transform: scale(1.1);
-				transition: transform .2s ease;
+			@include media-breakpoint-up(md) {
+				img {
+					transform: scale(1.1);
+					transition: transform .2s ease;
+				}
 			}
 		}
     }
 
     &__description {
-        img {
-            width: 20%;
-        }
+
 	}
 
 	a {

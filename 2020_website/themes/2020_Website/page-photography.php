@@ -38,13 +38,31 @@
 									<a href="<?php echo get_permalink(); ?>" alt="" class="internal-link">
 									<div class="photo__image">
 										<?php
-											$image1 = get_field('thumbnail_top');
+											$rows = get_field('images');
+											$count = 1;
+											if($rows) {
+												foreach($rows as $row) {
+													if ($count == 1) {
+														$image1 = $row['image'];
+														$count++;
+													} else if ($count == 2) {
+														$image2 = $row['image'];
+														$count++;
+													} else if($count == 3) {
+														$image3 = $row['image'];
+														break;
+													}
+												}
+											}
+										?>
+										<?php
+											// $image1 = get_field('thumbnail_top');
 											$top = str_replace('.jpg', '-500x333.jpg', $image1);
 
-											$image2 = get_field('thumbnail_middle');
+											// $image2 = get_field('thumbnail_middle');
 											$middle = str_replace('.jpg', '-500x333.jpg', $image2);
 
-											$image3 = get_field('thumbnail_bottom');
+											// $image3 = get_field('thumbnail_bottom');
 											$bottom = str_replace('.jpg', '-500x333.jpg', $image3);
 										?>
 										<img src="<?php echo $bottom ?>" class="photo__bottom photo__bottom--<?php echo (rand(1, 5)); ?>">

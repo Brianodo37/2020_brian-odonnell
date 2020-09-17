@@ -15,19 +15,32 @@
 						<h1><?php the_field('title'); ?></h1>
 					</div>
 
-					<div class="showcase__hero" data-aos="fade-up">
+					<div class="showcase__hero showcase__hero--photo" data-aos="fade-up">
 						<?php
 							$rows = get_field('images');
-							if($rows) {
-								echo '<div class="single-item">';
-								foreach($rows as $row) {
-									// if( $row['in_slider']) {
-										echo '<img src="' . $row['image'] . '">';
-									// }
-								}
-								echo '</div>';
-							}
+							$totalCount = count($rows);
+							$count = 1;
 						?>
+						<?php if($rows) { ?>
+							<div class="single-item">
+								<?php foreach($rows as $row) {
+									if ($row['vertical'] == 'yes') { ?>
+										<div class="slick-slide--vertical">
+											<div class="img-container">
+												<div class="caption"><?php echo $count ?>/<?php echo $totalCount ?></div>
+												<img src="<?php echo $row['image'] ?>">
+											</div>
+										</div>
+									<?php } else { ?>
+										<div class="slick-slide--horizontal">
+											<div class="caption"><?php echo $count ?>/<?php echo $totalCount ?></div>
+											<img src="<?php echo $row['image'] ?>">
+										</div>
+									<?php }
+									$count++;
+								} ?>
+							</div>
+						<?php } ?>
 					</div>
 				</div>
 
@@ -39,18 +52,26 @@
 
 						<div class="showcase__sidebar" data-aos="fade-up">
 							<ul>
-								<li><span class="sidebar__label">Date:</span> <span class="sidebar__detail"><?php the_field('date'); ?></span></li>
-								<li><span class="sidebar__label">Location:</span> <span class="sidebar__detail"><?php the_field('location'); ?></span></li>
-								<?php if (get_field('time_of_day')) { ?>
+								<?php if (get_field('date')): ?>
+									<li><span class="sidebar__label">Last Touched:</span> <span class="sidebar__detail"><?php the_field('date'); ?><?php if (get_field('end_date')) {?> - <?php the_field('end_date'); } ?></span></li>
+								<?php endif; ?>
+								<?php if (get_field('location')): ?>
+									<li><span class="sidebar__label">Location:</span> <span class="sidebar__detail"><?php the_field('location'); ?></span></li>
+								<?php endif; ?>
+								<?php if (get_field('time_of_day')): ?>
 									<li><span class="sidebar__label">Time of Day:</span> <span class="sidebar__detail"><?php the_field('time_of_day'); ?></span></li>
-								<?php } ?>
+								<?php endif; ?>
 								<li><span class="sidebar__label">Camera:</span> <span class="sidebar__detail"><?php the_field('camera'); ?></span></li>
-								<li><span class="sidebar__label">Lenses:</span> <span class="sidebar__detail"><?php the_field('lenses'); ?></span></li>
+								<?php if (get_field('lenses')): ?>
+									<li><span class="sidebar__label">Lenses:</span> <span class="sidebar__detail"><?php the_field('lenses'); ?></span></li>
+								<?php endif; ?>
 								<?php if (get_field('details')) {
 									$rows = get_field('details');
 									if($rows) {
 										foreach($rows as $row) {
-											echo '<li><span class="sidebar__label">' . $row['label'] . ':</span> <span class="sidebar__detail">' . $row['detail'] . '</span></li>';
+											if ($row['label']):
+												echo '<li><span class="sidebar__label">' . $row['label'] . ':</span> <span class="sidebar__detail">' . $row['detail'] . '</span></li>';
+											endif;
 										}
 									}
 								} ?>
@@ -61,25 +82,6 @@
 						</div>
 					</div>
 				</div>
-
-				<!-- <div class="row">
-					<div class="showcase__gallery"> -->
-						<?php
-							// $rows = get_field('images');
-							// if($rows) {
-							// 	$count = 0;
-							// 	foreach($rows as $row) {
-							// 		$image = $row['image'];
-							// 		$url = str_replace('.jpg', '-500x333.jpg', $image);
-
-							// 		echo '<div class="gallery__image">';
-							// 			echo '<img src="' . $url . '" data-aos="fade-up">';
-							// 		echo '</div>';
-							// 	}
-							// }
-						?>
-					<!-- </div>
-				</div> -->
 			</div>
 		</div>
 	</div>

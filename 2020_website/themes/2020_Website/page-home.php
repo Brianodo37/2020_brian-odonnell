@@ -19,7 +19,6 @@
 					<span class="button__background"></span>
 					<span class="button__border open-form-js">Contact Me</span>
 				</div>
-				<!-- <div id="particles-js"></div> -->
 			</div>
 		</div>
 
@@ -32,16 +31,18 @@
 
 						<?php $featured_posts = get_field('work'); ?>
 						<?php if ($featured_posts): ?>
-							<ul>
-								<?php foreach($featured_posts as $post): ?>
-								<?php setup_postdata($post); ?>
-
+							<?php foreach($featured_posts as $post): ?>
+							<?php setup_postdata($post); ?>
+								<?php if (get_field('ipad_screen') && get_field('homepage_snippet')) { ?>
 									<div class="feature">
-										<div class="feature__image">
-											<img src="wp-content/themes/2020_Website/assets/images/devices/hanson-tablet.png" alt="Hanson Inc." data-aos="fade-up">
+										<div class="feature__image" data-aos="fade-up">
+											<div class="feature__tablet">
+												<img src="wp-content/themes/2020_Website/assets/images/devices/Tablet.png" alt="" class="feature__tablet-frame">
+												<img src="<?php the_field('ipad_screen'); ?>" alt="" class="feature__tablet-screen">
+											</div>
 										</div>
 										<div class="feature__snippet">
-											<h6 data-aos="fade-up"><?php the_field('client'); ?></h3>
+											<h6 data-aos="fade-up"><?php if (get_field('shortened_client')) { the_field('shortened_client'); } else { the_field('client'); } ?></h3>
 											<h3 data-aos="fade-up" data-aos-delay="100" class="feature__title"><?php the_field('project_title'); ?></h3>
 											<p data-aos="fade-up" data-aos-delay="200" class="feature__copy"><?php the_field('homepage_snippet'); ?></p>
 											<div data-aos="fade-up" data-aos-delay="300" class="button button--blue">
@@ -50,9 +51,8 @@
 											</div>
 										</div>
 									</div>
-
-								<?php endforeach; ?>
-							</ul>
+								<?php } ?>
+							<?php endforeach; ?>
 						<?php wp_reset_postdata(); ?>
 						<?php endif; ?>
 

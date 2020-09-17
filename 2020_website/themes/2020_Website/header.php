@@ -76,8 +76,17 @@
 
 	<!-- Mobile Nav -->
 	<div class="mobile-nav mobile-nav-js state-closed">
-		<div class="mobile-nav__close">
-			<div class="icon close-nav-js"><i class="fas fa-times"></i></div>
+		<div class="container mobile-nav__button-container">
+			<!-- <div class="mobile-nav__close">
+				<div class="icon close-nav-js"><i class="fas fa-times"></i></div>
+			</div> -->
+			<div class="mobile-nav__button">
+				<div class="mobile-nav__close close-nav-js">
+					<span class="circle"></span>
+					<span class="line-1"></span>
+					<span class="line-2"></span>
+				</div>
+			</div>
 		</div>
 
 		<div class="mobile-nav__container">
