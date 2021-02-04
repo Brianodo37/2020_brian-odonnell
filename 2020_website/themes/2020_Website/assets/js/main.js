@@ -244,7 +244,11 @@ import AOS from "./lib/aos.js";
 	}
 
 	function countReplace(booksThisYear) {
-		$('#bookNumber')[0].innerHTML = booksThisYear.toString();
+		var space = '&nbsp;';
+		var bookNumber = booksThisYear.toString()
+		bookNumber = bookNumber.concat(space);
+		console.log(bookNumber);
+		$('#bookNumber')[0].innerHTML = bookNumber;
 
 		hideSpinner();
 	}

@@ -56,6 +56,14 @@
 			margin-bottom: 0;
 		}
 
+		&:last-child {
+			display: none;
+
+			@include media-breakpoint-up(md) {
+				display: flex;
+			}
+		}
+
 		@include media-breakpoint-up(lg) {
 			width: 25%;
 			margin-bottom: 0;
@@ -72,6 +80,7 @@
 			margin: 0;
 			width: 170px;
 			position: relative;
+			font-size: 20px;
 		}
 
 		.spinner {
@@ -98,7 +107,7 @@
 
 		.bookNumber {
 			opacity: 0;
-			transition: opacity .4s ease;
+			transition: all .4s ease;
 			width: 32px;
 			display: block;
 			float: left;
@@ -108,12 +117,13 @@
 			&.js-numberAdded {
 				.spinner {
 					opacity: 0;
-					transition: opacity .4s ease;
+					transition: all .4s ease;
 				}
 
 				.bookNumber {
 					opacity: 1 !important;
-					transition: opacity .4s ease;
+					transition: all .4s ease;
+					width: auto;
 				}
 			}
 		}

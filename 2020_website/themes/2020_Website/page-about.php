@@ -43,7 +43,7 @@
 							} ?>
 							<div class="stats__item stats__item--book">
 								<i class="fas fa-book" aria-hidden="true"></i>
-								<h4><i class="fa fa-spinner spinner" aria-hidden="true"></i><span id="bookNumber" class="bookNumber">10</span> books read in <?php echo date("Y"); ?></h4>
+								<h4><i class="fa fa-spinner spinner" aria-hidden="true"></i><span id="bookNumber" class="bookNumber">10</span> books read in <?php echo date("Y"); ?> so far</h4>
 							</div>
 						</div>
 					</div>
